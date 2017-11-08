@@ -10,13 +10,16 @@ namespace Model
     public class Room
     {
         int id;
-        int idTurn;
         int trumpTaker;
+        List<Player> players;
+        Board roomBoard;
 
         public Room()
         {
-            IdTurn = 1;
+            Id = -1;
             TrumpTaker = -1;
+            Players = new List<Player>();
+            RoomBoard = new Board();
         }
 
         public int Id
@@ -25,16 +28,23 @@ namespace Model
             set { id = value; }
         }
 
-        public int IdTurn
-        {
-            get { return idTurn; }
-            set { idTurn = value; }
-        }
-
         public int TrumpTaker
         {
             get { return trumpTaker; }
             set { trumpTaker = value; }
         }
+
+        public List<Player> Players
+        {
+            get { return players; }
+            set { players = value; }
+        }
+
+        public Board RoomBoard
+        {
+            get { return roomBoard; }
+            set { roomBoard = value; }
+        }
+
     }
 }

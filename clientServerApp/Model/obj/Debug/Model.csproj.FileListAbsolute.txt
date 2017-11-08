@@ -10,3 +10,9 @@ C:\Users\Thomas\Documents\rendu\c#\DOT_cardGames_2017\clientServerApp\Model\bin\
 C:\Users\Thomas\Documents\rendu\c#\DOT_cardGames_2017\clientServerApp\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 C:\Users\Thomas\Documents\rendu\c#\DOT_cardGames_2017\clientServerApp\Model\obj\Debug\Model.dll
 C:\Users\Thomas\Documents\rendu\c#\DOT_cardGames_2017\clientServerApp\Model\obj\Debug\Model.pdb
+C:\Users\53568\Documents\DOT_cardGames_2017\clientServerApp\Model\bin\Debug\Model.dll
+C:\Users\53568\Documents\DOT_cardGames_2017\clientServerApp\Model\bin\Debug\Model.pdb
+C:\Users\53568\Documents\DOT_cardGames_2017\clientServerApp\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\53568\Documents\DOT_cardGames_2017\clientServerApp\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\53568\Documents\DOT_cardGames_2017\clientServerApp\Model\obj\Debug\Model.dll
+C:\Users\53568\Documents\DOT_cardGames_2017\clientServerApp\Model\obj\Debug\Model.pdb
