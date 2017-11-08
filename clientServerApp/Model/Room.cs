@@ -9,17 +9,10 @@ namespace Model
 {
     public class Room
     {
-<<<<<<< HEAD
         private int id;
         private int trumpTaker;
         private List<Player> players;
         private Board roomBoard;
-=======
-        int id;
-        int trumpTaker;
-        List<Player> players;
-        Board roomBoard;
->>>>>>> c35f5986f8c5502a006abfa66b1923f9fd840c8e
 
         public Room()
         {
