@@ -49,7 +49,11 @@ namespace Model
             Hand = new List<Card>();
             Score = 0;
             Team = 0;
+<<<<<<< HEAD
             TaskState = new Task();
+=======
+            taskState = new Task();
+>>>>>>> c35f5986f8c5502a006abfa66b1923f9fd840c8e
         }
     }
 }
