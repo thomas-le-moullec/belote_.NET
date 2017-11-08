@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Model;
+using clientApp;
 
 namespace ClientApplication
 {
@@ -74,7 +75,8 @@ namespace ClientApplication
             Work.Type = Task.TaskNature.GREETINGS;
             Router.DoActions(Work.Type);
 
-            //Scheduled task
+            ScheduleTask sched = new ScheduleTask(this, 1000);
+            sched.ScheduleAction();
             Run();
         }
 
