@@ -1,0 +1,7 @@
+C:\Users\53568\source\repos\clientServerApp\Model\bin\Debug\Model.dll
+C:\Users\53568\source\repos\clientServerApp\Model\bin\Debug\Model.pdb
+C:\Users\53568\source\repos\clientServerApp\Model\bin\Debug\NetworkCommsDotNetComplete.dll
+C:\Users\53568\source\repos\clientServerApp\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\53568\source\repos\clientServerApp\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\53568\source\repos\clientServerApp\Model\obj\Debug\Model.dll
+C:\Users\53568\source\repos\clientServerApp\Model\obj\Debug\Model.pdb
