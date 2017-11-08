@@ -5,17 +5,9 @@ C:\Users\53568\source\repos\clientServerApp\Model\obj\Debug\Model.csprojResolveA
 C:\Users\53568\source\repos\clientServerApp\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 C:\Users\53568\source\repos\clientServerApp\Model\obj\Debug\Model.dll
 C:\Users\53568\source\repos\clientServerApp\Model\obj\Debug\Model.pdb
-<<<<<<< HEAD
-=======
 C:\Users\Thomas\Documents\rendu\c#\DOT_cardGames_2017\clientServerApp\Model\bin\Debug\Model.dll
 C:\Users\Thomas\Documents\rendu\c#\DOT_cardGames_2017\clientServerApp\Model\bin\Debug\Model.pdb
+C:\Users\Thomas\Documents\rendu\c#\DOT_cardGames_2017\clientServerApp\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 C:\Users\Thomas\Documents\rendu\c#\DOT_cardGames_2017\clientServerApp\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 C:\Users\Thomas\Documents\rendu\c#\DOT_cardGames_2017\clientServerApp\Model\obj\Debug\Model.dll
 C:\Users\Thomas\Documents\rendu\c#\DOT_cardGames_2017\clientServerApp\Model\obj\Debug\Model.pdb
-C:\Users\53568\Documents\DOT_cardGames_2017\clientServerApp\Model\bin\Debug\Model.dll
-C:\Users\53568\Documents\DOT_cardGames_2017\clientServerApp\Model\bin\Debug\Model.pdb
-C:\Users\53568\Documents\DOT_cardGames_2017\clientServerApp\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
-C:\Users\53568\Documents\DOT_cardGames_2017\clientServerApp\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
-C:\Users\53568\Documents\DOT_cardGames_2017\clientServerApp\Model\obj\Debug\Model.dll
-C:\Users\53568\Documents\DOT_cardGames_2017\clientServerApp\Model\obj\Debug\Model.pdb
->>>>>>> c35f5986f8c5502a006abfa66b1923f9fd840c8e
