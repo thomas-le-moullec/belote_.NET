@@ -1,0 +1,9 @@
+C:\Users\Thomas\Documents\rendu\c#\DOT_cardGames_2017\clientServerApp\clientApp\bin\Debug\clientApp.exe.config
+C:\Users\Thomas\Documents\rendu\c#\DOT_cardGames_2017\clientServerApp\clientApp\bin\Debug\clientApp.exe
+C:\Users\Thomas\Documents\rendu\c#\DOT_cardGames_2017\clientServerApp\clientApp\bin\Debug\clientApp.pdb
+C:\Users\Thomas\Documents\rendu\c#\DOT_cardGames_2017\clientServerApp\clientApp\bin\Debug\Model.dll
+C:\Users\Thomas\Documents\rendu\c#\DOT_cardGames_2017\clientServerApp\clientApp\bin\Debug\Model.pdb
+C:\Users\Thomas\Documents\rendu\c#\DOT_cardGames_2017\clientServerApp\clientApp\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\Thomas\Documents\rendu\c#\DOT_cardGames_2017\clientServerApp\clientApp\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\Thomas\Documents\rendu\c#\DOT_cardGames_2017\clientServerApp\clientApp\obj\Debug\clientApp.exe
+C:\Users\Thomas\Documents\rendu\c#\DOT_cardGames_2017\clientServerApp\clientApp\obj\Debug\clientApp.pdb

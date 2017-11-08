@@ -45,8 +45,10 @@ namespace ClientApplication
                 //Write some information to the console window
                 // GETLINE AND SEND USER' ENTRY :
 
+                string entry = Console.ReadLine();
+
                 //Check if user wants to go around the loop
-                Console.WriteLine("\nPress q to quit or any other key to send another message.");
+                //Console.WriteLine("\nPress q to quit or any other key to send another message.");
                 if (Console.ReadKey(true).Key == ConsoleKey.Q) break;
             }
         }
