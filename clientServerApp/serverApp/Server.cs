@@ -14,9 +14,13 @@ namespace ServerApplication
 
         public Server()
         {
+            //initialise Room
             room = new Room();
             room.Id = 1;
-            NetworkComms.AppendGlobalIncomingPacketHandler<String>("Greetings", this.GetIncomingMessage);
+
+            //create endPoints to communicate with clients
+            createEndPoints();
+
             //Start listening for incoming connections
             Connection.StartListening(ConnectionType.TCP, new System.Net.IPEndPoint(System.Net.IPAddress.Any, 0));
 
@@ -36,6 +40,12 @@ namespace ServerApplication
             NetworkComms.Shutdown();
         }
 
+        public void createEndPoints()
+        {
+            NetworkComms.AppendGlobalIncomingPacketHandler<String>("Greetings", this.GetIncomingMessage);
+            NetworkComms.AppendGlobalIncomingPacketHandler<int>("WhichTask", this.WhichTasks);
+        }
+
         /// <summary>
         /// Get the provided message to the console window
         /// </summary>
@@ -53,6 +63,12 @@ namespace ServerApplication
             Console.WriteLine("\nA message was received from " + connection.ToString() + " which said '" + greeting + "'.");
             connection.SendObject("Greetings", welcome);
         }
+
+        public void WhichTasks(PacketHeader header, Connection connection, int id)
+        {
+            connection.SendObject("WhichTasks", "");
+        }
+
         static void Main(string[] args)
         {
             Server server = new Server();

@@ -2,16 +2,48 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using NetworkCommsDotNet;
-using NetworkCommsDotNet.Connections;
 using Model;
 
 namespace ClientApplication
 {
-    class Client
+    public class Client
     {
+        private Router router;
+        private string serverIp;
+        private int serverPort;
+        private string username;
+        private Task task;
 
-        //Variables server && username
+        public Router Router
+        {
+            get { return router; }
+            set { router = value; }
+        }
+
+        public Task task
+        {
+            get { return task; }
+            set { task = value; }
+        }
+
+        public string ServerIp
+        {
+            get { return serverIp; }
+            set { serverIp = value; }
+        }
+
+        public string Username
+        {
+            get { return username; }
+            set { username = value; }
+        }
+
+        public int ServerPort
+        {
+            get { return serverPort; }
+            set { serverPort = value; }
+        }
+
         public Client()
         {
             //Request server IP and port number
@@ -19,23 +51,24 @@ namespace ClientApplication
             string serverInfo = Console.ReadLine();
 
             //Parse the necessary information out of the provided string
-            string serverIP = serverInfo.Split(':').First();
-            int serverPort = int.Parse(serverInfo.Split(':').Last());
+            ServerIp = serverInfo.Split(':').First();
+            ServerPort = int.Parse(serverInfo.Split(':').Last());
 
-            //Keep a loopcounter
-            NetworkComms.AppendGlobalIncomingPacketHandler<Greeting>("Greetings", this.PrintIncomingMessage);
+            //Create Router to subscribe to channels and to communicate with the Server
+            Router = new Router(this);
+
+            //Get UserName
             Console.WriteLine("Please enter your username:");
-            string userName = Console.ReadLine();
-            Console.WriteLine("Sending message to server saying '" + userName + "'");
-            //Send the message in a single line
-            NetworkComms.SendObject<string>("Greetings", serverIP, serverPort, userName);
-            this.Run();
+            Username = Console.ReadLine();
+
+            //Set First Task
+            Task = new Task();
+            Router.DoActions(Task);
+            Run();
         }
 
         ~Client()
         {
-            //We have used comms so we make sure to call shutdown
-            NetworkComms.Shutdown();
         }
 
         public void Run()
@@ -44,18 +77,13 @@ namespace ClientApplication
             {
                 //Write some information to the console window
                 // GETLINE AND SEND USER' ENTRY :
-
+                //if no infos display
                 string entry = Console.ReadLine();
 
                 //Check if user wants to go around the loop
                 //Console.WriteLine("\nPress q to quit or any other key to send another message.");
                 if (Console.ReadKey(true).Key == ConsoleKey.Q) break;
             }
-        }
-
-        public void PrintIncomingMessage(PacketHeader header, Connection connection, Greeting msg)
-        {
-            Console.WriteLine("-------------------------------" + msg.Message + " and id : " + msg.Id + "--------------------------");
         }
 
         static void Main(string[] args)
