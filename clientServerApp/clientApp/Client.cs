@@ -12,7 +12,8 @@ namespace ClientApplication
         private string serverIp;
         private int serverPort;
         private string username;
-        private Task task;
+        private Task work;
+        private int id;
 
         public Router Router
         {
@@ -20,10 +21,10 @@ namespace ClientApplication
             set { router = value; }
         }
 
-        public Task task
+        public Task Work
         {
-            get { return task; }
-            set { task = value; }
+            get { return work; }
+            set { work = value; }
         }
 
         public string ServerIp
@@ -44,6 +45,12 @@ namespace ClientApplication
             set { serverPort = value; }
         }
 
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
         public Client()
         {
             //Request server IP and port number
@@ -56,14 +63,18 @@ namespace ClientApplication
 
             //Create Router to subscribe to channels and to communicate with the Server
             Router = new Router(this);
+            Router.Subscribe();
 
             //Get UserName
             Console.WriteLine("Please enter your username:");
             Username = Console.ReadLine();
 
             //Set First Task
-            Task = new Task();
-            Router.DoActions(Task);
+            Work = new Task();
+            Work.Type = Task.TaskNature.GREETINGS;
+            Router.DoActions(Work.Type);
+
+            //Scheduled task
             Run();
         }
 
@@ -75,8 +86,6 @@ namespace ClientApplication
         {
             while (true)
             {
-                //Write some information to the console window
-                // GETLINE AND SEND USER' ENTRY :
                 //if no infos display
                 string entry = Console.ReadLine();
 

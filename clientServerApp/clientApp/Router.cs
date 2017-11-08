@@ -35,25 +35,37 @@ namespace ClientApplication
 
         public void Subscribe()
         {
-            NetworkComms.AppendGlobalIncomingPacketHandler<Greeting>("Greetings", this.PrintIncomingMessage);
-            NetworkComms.AppendGlobalIncomingPacketHandler<Task>("WhichTasks", ReceiveAction);
+            NetworkComms.AppendGlobalIncomingPacketHandler<Greeting>("Greetings", Greeting);
+            NetworkComms.AppendGlobalIncomingPacketHandler<Model.Task>("WhichTasks", ReceiveAction);
         }
 
-        public void DoActions(Task task)
+        public void DoActions(Model.Task.TaskNature task)
         {
-            // If Client.Task == GREETING || task == GETBOARD
-            Console.WriteLine("Sending message to server saying '" + Client.Username + "'");
-            NetworkComms.SendObject<string>("Greetings", Client.ServerIp, Client.ServerPort, Client.Username);
+            if (task == Model.Task.TaskNature.GREETINGS)
+            {
+                Console.WriteLine("Sending message to server saying '" + Client.Username + "'");
+                NetworkComms.SendObject<string>("Greetings", Client.ServerIp, Client.ServerPort, Client.Username);
+            }
+
+            if (task == Model.Task.TaskNature.ASKFORTASK)
+            {
+                Console.WriteLine("Ask for Task");
+                NetworkComms.SendObject<int>("WhichTasks", Client.ServerIp, Client.ServerPort, Client.Id);
+            }
         }
 
-        public void ReceiveAction(PacketHeader header, Connection connection, Task task)
+        public void ReceiveAction(PacketHeader header, Connection connection, Model.Task task)
         {
-            DoActions(task);
+            DoActions(task.Type);
         }
 
-        public void PrintIncomingMessage(PacketHeader header, Connection connection, Greeting msg)
+        public void Greeting(PacketHeader header, Connection connection, Greeting greeting)
         {
-            Console.WriteLine("-------------------------------" + msg.Message + " and id : " + msg.Id + "--------------------------");
+            if (greeting.Connection == false) {
+                System.Environment.Exit(1);
+            }
+            Client.Id = greeting.Id;
+            Console.WriteLine(greeting.Message + " , your will play with id :"+greeting.Id);
         }
     }
 }

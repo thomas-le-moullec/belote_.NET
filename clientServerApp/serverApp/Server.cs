@@ -12,6 +12,12 @@ namespace ServerApplication
     {
         private Room room;//will become a pool of rooms (LIST)
 
+        public Room Room
+        {
+            get { return room; }
+            set { room = value; }
+        }
+
         public Server()
         {
             //initialise Room
@@ -42,7 +48,7 @@ namespace ServerApplication
 
         public void createEndPoints()
         {
-            NetworkComms.AppendGlobalIncomingPacketHandler<String>("Greetings", this.GetIncomingMessage);
+            NetworkComms.AppendGlobalIncomingPacketHandler<String>("Greetings", this.InitialiseGame);
             NetworkComms.AppendGlobalIncomingPacketHandler<int>("WhichTask", this.WhichTasks);
         }
 
@@ -52,14 +58,20 @@ namespace ServerApplication
         /// <param name="header">The packet header associated with the incoming message</param>
         /// <param name="connection">The connection used by the incoming message</param>
         /// <param name="greeting">The message to be printed to the console</param>
-        public void GetIncomingMessage(PacketHeader header, Connection connection, String greeting)
+        public void InitialiseGame(PacketHeader header, Connection connection, String greeting)
         {
-            //add player in room or add Room and add player in Room
-            Console.WriteLine("\nIN SERVER, THE ROOM : " + room.TrumpTaker);
+            // Select last Room or add another one if the number player of the last one is >= 4
+            List<Player> players = Room.Players;
+            int idPlayer = players.Count + 1;
             Greeting welcome = new Greeting();
-            welcome.Id = 0;//Room.players.size() + 1;
+
+            welcome.Id = idPlayer;
             welcome.Connection = true;
             welcome.Message = "Hello " + greeting;
+
+            players.Add(new Player());
+            players[players.Count - 1].Id = idPlayer;
+            players[players.Count - 1].Team = (players.Count + 1) % 2;
             Console.WriteLine("\nA message was received from " + connection.ToString() + " which said '" + greeting + "'.");
             connection.SendObject("Greetings", welcome);
         }
