@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProtoBuf;
 
 namespace Model
 {
+    [ProtoContract]
     public class Task
     {
         /**
@@ -23,6 +25,7 @@ namespace Model
             GET_HAND
         }
 
+        [ProtoMember(1)]
         TaskNature type;
 
         public TaskNature Type

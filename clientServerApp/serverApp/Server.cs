@@ -94,7 +94,8 @@ namespace ServerApplication
 
         public void WhichTasks(PacketHeader header, Connection connection, int id)
         {
-            connection.SendObject("WhichTasks", Room.Players[id - 1].TaskState.Type);
+            Console.WriteLine("WHICH TASK!\n");
+            connection.SendObject("WhichTasks", Room.Players[id - 1].TaskState);
         }
 
         static void Main(string[] args)

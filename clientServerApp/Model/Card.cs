@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProtoBuf;
 
 namespace Model
 {
+    [ProtoContract]
     public class Card
     {
         public enum Types
@@ -16,9 +18,13 @@ namespace Model
             SPADE
         }
 
+        [ProtoMember(1)]
         Types type;
+        [ProtoMember(2)]
         String val;
+        [ProtoMember(3)]
         int points;
+        [ProtoMember(4)]
         bool trump;
 
         public Types Type

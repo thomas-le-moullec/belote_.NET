@@ -52,6 +52,11 @@ namespace ClientApplication
                 Console.WriteLine("Ask for Task");
                 NetworkComms.SendObject<int>("WhichTasks", Client.ServerIp, Client.ServerPort, Client.Id);
             }
+
+            if (task == Model.Task.TaskNature.GET_HAND)
+            {
+                Console.WriteLine("Client will get the HAND");
+            }
         }
 
         public void ReceiveAction(PacketHeader header, Connection connection, Model.Task task)
