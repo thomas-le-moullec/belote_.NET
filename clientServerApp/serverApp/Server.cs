@@ -50,6 +50,8 @@ namespace ServerApplication
         {
             NetworkComms.AppendGlobalIncomingPacketHandler<String>("Greetings", this.InitialiseGame);
             NetworkComms.AppendGlobalIncomingPacketHandler<int>("WhichTasks", this.WhichTasks);
+            NetworkComms.AppendGlobalIncomingPacketHandler<int>("GetHands", this.GetHands);
+            NetworkComms.AppendGlobalIncomingPacketHandler<int>("GetTrump", this.GetTrump);
         }
 
         /// <summary>
@@ -78,7 +80,8 @@ namespace ServerApplication
                 Console.WriteLine("WE WILL START THE GAME !\n");
                 foreach (var player in players)
                 {
-                    //distribution
+                    //distribution by Marie
+                    //génération de l'atout by Marie
                     player.TaskState.Type = Task.TaskNature.GET_HAND;
                 }
             }
@@ -96,6 +99,16 @@ namespace ServerApplication
         {
             Console.WriteLine("WHICH TASK!\n");
             connection.SendObject("WhichTasks", Room.Players[id - 1].TaskState);
+        }
+
+        public void GetHands(PacketHeader header, Connection connection, int id)
+        {
+            connection.SendObject("getHands", Room.Players[id - 1].Hand);
+        }
+
+        public void GetTrump(PacketHeader header, Connection connection, int id)
+        {
+            //send Card
         }
 
         static void Main(string[] args)
