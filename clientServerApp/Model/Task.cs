@@ -19,7 +19,8 @@ namespace Model
             PUT_CARD,
             GET_TRUMP,
             GET_CARD,
-            GET_BOARD
+            GET_BOARD,
+            GET_HAND
         }
 
         TaskNature type;

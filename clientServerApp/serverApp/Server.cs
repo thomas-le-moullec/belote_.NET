@@ -62,23 +62,38 @@ namespace ServerApplication
         {
             // Select last Room or add another one if the number player of the last one is >= 4
             List<Player> players = Room.Players;
+            Player newPlayer = new Player();
             int idPlayer = players.Count + 1;
             Greeting welcome = new Greeting();
 
+            //Add player in Players list of the room
+            players.Add(newPlayer);
+            newPlayer.Id = idPlayer;
+            newPlayer.Team = (players.Count + 1) % 2;
+            newPlayer.TaskState.Type = Task.TaskNature.WAIT;
+
+            //Start of the Game
+            if (idPlayer == 4)
+            {
+                Console.WriteLine("WE WILL START THE GAME !\n");
+                foreach (var player in players)
+                {
+                    player.TaskState.Type = Task.TaskNature.GET_HAND;
+                }
+            }
+
+            //Fill all the datas the new player needs to know
             welcome.Id = idPlayer;
             welcome.Connection = true;
             welcome.Message = "Hello " + greeting;
+            welcome.Team = players[players.Count - 1].Team;
 
-            players.Add(new Player());
-            players[players.Count - 1].Id = idPlayer;
-            players[players.Count - 1].Team = (players.Count + 1) % 2;
-            Console.WriteLine("\nA message was received from " + connection.ToString() + " which said '" + greeting + "'.");
             connection.SendObject("Greetings", welcome);
         }
 
         public void WhichTasks(PacketHeader header, Connection connection, int id)
         {
-            connection.SendObject("WhichTasks", "");
+            connection.SendObject("WhichTasks", Room.Players[id - 1].TaskState.Type);
         }
 
         static void Main(string[] args)

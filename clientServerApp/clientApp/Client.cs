@@ -13,8 +13,12 @@ namespace ClientApplication
         private string serverIp;
         private int serverPort;
         private string username;
+
+        //New Variable Player
         private Task work;
         private int id;
+        private bool prompt;
+        private int team;
 
         public Router Router
         {
@@ -32,6 +36,18 @@ namespace ClientApplication
         {
             get { return serverIp; }
             set { serverIp = value; }
+        }
+
+        public bool Prompt
+        {
+            get { return prompt; }
+            set { prompt = value; }
+        }
+
+        public int Team
+        {
+            get { return team; }
+            set { team = value; }
         }
 
         public string Username
@@ -70,12 +86,15 @@ namespace ClientApplication
             Console.WriteLine("Please enter your username:");
             Username = Console.ReadLine();
 
+            //Set Prompt, this booleen will be use to display datas on user Screen. If it is false, it is User's turn.
+            Prompt = true;
+
             //Set First Task
             Work = new Task();
             Work.Type = Task.TaskNature.GREETINGS;
             Router.DoActions(Work.Type);
 
-            ScheduleTask sched = new ScheduleTask(this, 1000);
+            ScheduleTask sched = new ScheduleTask(this, 3000);
             sched.ScheduleAction();
             Run();
         }

@@ -13,6 +13,7 @@ namespace Model
         int score;
         int team;
         Task taskState;
+        //add Username
 
         public int Id
         {

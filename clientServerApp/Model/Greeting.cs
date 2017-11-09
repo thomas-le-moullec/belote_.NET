@@ -16,6 +16,8 @@ namespace Model
         int id;
         [ProtoMember(3)]
         string message;
+        [ProtoMember(4)]
+        int team;
 
         public bool Connection
         {
@@ -33,6 +35,12 @@ namespace Model
         {
             get { return id; }
             set { id = value; }
+        }
+
+        public int Team
+        {
+            get { return team; }
+            set { team = value; }
         }
     }
 }

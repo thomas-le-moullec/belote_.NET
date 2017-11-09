@@ -36,7 +36,7 @@ namespace clientApp
 
         public void EventTimeHandler(Object source, System.Timers.ElapsedEventArgs e)
         {
-            Client.Router.DoActions(Client.Work.Type);
+            Client.Router.DoActions(Model.Task.TaskNature.ASKFORTASK);
             //Console.WriteLine("The Elapsed event was raised at {0}", e.SignalTime);
         }
         public Client Client

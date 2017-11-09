@@ -56,16 +56,21 @@ namespace ClientApplication
 
         public void ReceiveAction(PacketHeader header, Connection connection, Model.Task task)
         {
+            Console.WriteLine("Receive action type :"+task.Type);
             DoActions(task.Type);
         }
 
         public void Greeting(PacketHeader header, Connection connection, Greeting greeting)
         {
+            //Check if connection is OK
             if (greeting.Connection == false) {
                 System.Environment.Exit(1);
             }
+
+            //Get Data from the HandShake
             Client.Id = greeting.Id;
-            Console.WriteLine(greeting.Message + " , your will play with id :"+greeting.Id);
+            Client.Team = greeting.Team;
+            Console.WriteLine(greeting.Message + " , your will play with id :"+greeting.Id+" and are in the TEAM"+greeting.Team);
         }
     }
 }
