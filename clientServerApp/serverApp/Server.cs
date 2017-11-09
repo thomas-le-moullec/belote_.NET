@@ -49,7 +49,7 @@ namespace ServerApplication
         public void createEndPoints()
         {
             NetworkComms.AppendGlobalIncomingPacketHandler<String>("Greetings", this.InitialiseGame);
-            NetworkComms.AppendGlobalIncomingPacketHandler<int>("WhichTask", this.WhichTasks);
+            NetworkComms.AppendGlobalIncomingPacketHandler<int>("WhichTasks", this.WhichTasks);
         }
 
         /// <summary>
