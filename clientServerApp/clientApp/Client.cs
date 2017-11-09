@@ -12,13 +12,14 @@ namespace ClientApplication
         private Router router;
         private string serverIp;
         private int serverPort;
-        private string username;
+        private bool prompt;
+
 
         //New Variable Player
         private Task work;
         private int id;
-        private bool prompt;
         private int team;
+        private string username;
 
         public Router Router
         {

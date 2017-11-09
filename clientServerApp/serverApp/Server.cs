@@ -78,6 +78,7 @@ namespace ServerApplication
                 Console.WriteLine("WE WILL START THE GAME !\n");
                 foreach (var player in players)
                 {
+                    //distribution
                     player.TaskState.Type = Task.TaskNature.GET_HAND;
                 }
             }
