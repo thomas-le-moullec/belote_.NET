@@ -38,6 +38,7 @@ namespace ClientApplication
             NetworkComms.AppendGlobalIncomingPacketHandler<Greeting>("Greetings", Greeting);
             NetworkComms.AppendGlobalIncomingPacketHandler<Model.Task>("WhichTasks", ReceiveAction);
             NetworkComms.AppendGlobalIncomingPacketHandler<List<Model.Card>>("GetHands", GetHand);
+            NetworkComms.AppendGlobalIncomingPacketHandler<Model.Card>("GetTrumps", GetTrump);
         }
 
         public void DoActions(Model.Task.TaskNature task)
@@ -51,13 +52,18 @@ namespace ClientApplication
             if (task == Model.Task.TaskNature.ASKFORTASK)
             {
                 Console.WriteLine("Ask for Task");
-                NetworkComms.SendObject<int>("WhichTasks", Client.ServerIp, Client.ServerPort, Client.Id);
+                NetworkComms.SendObject<int>("WhichTasks", Client.ServerIp, Client.ServerPort, Client.Player.Id);
             }
 
             if (task == Model.Task.TaskNature.GET_HAND)
             {
                 Console.WriteLine("Client will get the HAND");
-                NetworkComms.SendObject<int>("GetHands", Client.ServerIp, Client.ServerPort, Client.Id);
+                NetworkComms.SendObject<int>("GetHands", Client.ServerIp, Client.ServerPort, Client.Player.Id);
+            }
+
+            if (task == Model.Task.TaskNature.WAIT)
+            {
+                //Display status of the game
             }
         }
 
@@ -69,7 +75,13 @@ namespace ClientApplication
 
         public void GetHand(PacketHeader header, Connection connection, List<Model.Card> cards)
         {
-            //Client.Hand = cards;
+            Client.Player.Hand = cards;
+            //display Hand of player
+        }
+
+        public void GetTrump(PacketHeader header, Connection connection, Model.Card trump)
+        {
+            //Display Trump and ask to get it
         }
 
         public void Greeting(PacketHeader header, Connection connection, Greeting greeting)
@@ -80,8 +92,8 @@ namespace ClientApplication
             }
 
             //Get Data from the HandShake
-            Client.Id = greeting.Id;
-            Client.Team = greeting.Team;
+            Client.Player.Id = greeting.Id;
+            Client.Player.Team = greeting.Team;
             Console.WriteLine(greeting.Message + " , your will play with id :"+greeting.Id+" and are in the TEAM"+greeting.Team);
         }
     }

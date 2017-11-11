@@ -13,7 +13,7 @@ namespace Model
         int score;
         int team;
         Task taskState;
-        //add Username
+        string username;
 
         public int Id
         {
@@ -31,6 +31,12 @@ namespace Model
         {
             get { return score; }
             set { score = value; }
+        }
+
+        public string Username
+        {
+            get { return username; }
+            set { username = value; }
         }
 
         public int Team

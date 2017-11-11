@@ -73,6 +73,7 @@ namespace ServerApplication
             newPlayer.Id = idPlayer;
             newPlayer.Team = (players.Count + 1) % 2;
             newPlayer.TaskState.Type = Task.TaskNature.WAIT;
+            newPlayer.Username = greeting;
 
             //Start of the Game
             if (idPlayer == 4)
@@ -103,12 +104,17 @@ namespace ServerApplication
 
         public void GetHands(PacketHeader header, Connection connection, int id)
         {
-            connection.SendObject("getHands", Room.Players[id - 1].Hand);
+            connection.SendObject("GetHands", Room.Players[id - 1].Hand);
+            foreach (var player in Room.Players)
+            {
+                player.TaskState.Type = Task.TaskNature.WAIT;
+            }
+            Room.Players[0].TaskState.Type = Task.TaskNature.GET_TRUMP;
         }
 
         public void GetTrump(PacketHeader header, Connection connection, int id)
         {
-            //send Card
+            connection.SendObject("GetTrumps", Room.RoomBoard.Trump);
         }
 
         static void Main(string[] args)

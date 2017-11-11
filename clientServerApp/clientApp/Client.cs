@@ -13,24 +13,18 @@ namespace ClientApplication
         private string serverIp;
         private int serverPort;
         private bool prompt;
+        private Player player;
 
-
-        //New Variable Player T
-        private Task work;
-        private int id;
-        private int team;
-        private string username;
+        public Player Player
+        {
+            get { return player; }
+            set { player = value; }
+        }
 
         public Router Router
         {
             get { return router; }
             set { router = value; }
-        }
-
-        public Task Work
-        {
-            get { return work; }
-            set { work = value; }
         }
 
         public string ServerIp
@@ -45,12 +39,6 @@ namespace ClientApplication
             set { prompt = value; }
         }
 
-        public int Team
-        {
-            get { return team; }
-            set { team = value; }
-        }
-
         public string Username
         {
             get { return username; }
@@ -61,12 +49,6 @@ namespace ClientApplication
         {
             get { return serverPort; }
             set { serverPort = value; }
-        }
-
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
         }
 
         public Client()
@@ -83,17 +65,16 @@ namespace ClientApplication
             Router = new Router(this);
             Router.Subscribe();
 
-            //Get UserName
-            Console.WriteLine("Please enter your username:");
-            Username = Console.ReadLine();
-
             //Set Prompt, this booleen will be use to display datas on user Screen. If it is false, it is User's turn.
             Prompt = true;
 
+            Player = new Player();
+            //Get UserName
+            Console.WriteLine("Please enter your username:");
+            Player.Username = Console.ReadLine();
             //Set First Task
-            Work = new Task();
-            Work.Type = Task.TaskNature.GREETINGS;
-            Router.DoActions(Work.Type);
+            Player.TaskState.Type = Task.TaskNature.GREETINGS;
+            Router.DoActions(Player.TaskState.Type);
 
             ScheduleTask sched = new ScheduleTask(this, 3000);
             sched.ScheduleAction();
