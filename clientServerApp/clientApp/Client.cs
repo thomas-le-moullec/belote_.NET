@@ -39,12 +39,6 @@ namespace ClientApplication
             set { prompt = value; }
         }
 
-        public string Username
-        {
-            get { return username; }
-            set { username = value; }
-        }
-
         public int ServerPort
         {
             get { return serverPort; }

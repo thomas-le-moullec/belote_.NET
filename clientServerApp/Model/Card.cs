@@ -24,8 +24,6 @@ namespace Model
         String val;
         [ProtoMember(3)]
         int points;
-        [ProtoMember(4)]
-        bool trump;
 
         public Types Type
         {
@@ -45,18 +43,11 @@ namespace Model
             set { points = value; }
         }
 
-        public bool Trump
-        {
-            get { return trump; }
-            set { trump = value; }
-        }
-
         public Card()
         {
             Type = new Types();
             Val = "";
             Points = 0;
-            Trump = false;
         }
     }
 }

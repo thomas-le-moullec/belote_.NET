@@ -45,8 +45,8 @@ namespace ClientApplication
         {
             if (task == Model.Task.TaskNature.GREETINGS)
             {
-                Console.WriteLine("Sending message to server saying '" + Client.Username + "'");
-                NetworkComms.SendObject<string>("Greetings", Client.ServerIp, Client.ServerPort, Client.Username);
+                Console.WriteLine("Sending message to server saying '" + Client.Player.Username + "'");
+                NetworkComms.SendObject<string>("Greetings", Client.ServerIp, Client.ServerPort, Client.Player.Username);
             }
 
             if (task == Model.Task.TaskNature.ASKFORTASK)
