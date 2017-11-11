@@ -37,6 +37,7 @@ namespace ClientApplication
         {
             NetworkComms.AppendGlobalIncomingPacketHandler<Greeting>("Greetings", Greeting);
             NetworkComms.AppendGlobalIncomingPacketHandler<Model.Task>("WhichTasks", ReceiveAction);
+            NetworkComms.AppendGlobalIncomingPacketHandler<List<Model.Card>>("GetHands", GetHand);
         }
 
         public void DoActions(Model.Task.TaskNature task)
@@ -56,6 +57,7 @@ namespace ClientApplication
             if (task == Model.Task.TaskNature.GET_HAND)
             {
                 Console.WriteLine("Client will get the HAND");
+                NetworkComms.SendObject<int>("GetHands", Client.ServerIp, Client.ServerPort, Client.Id);
             }
         }
 
@@ -63,6 +65,11 @@ namespace ClientApplication
         {
             Console.WriteLine("Receive action type :"+task.Type);
             DoActions(task.Type);
+        }
+
+        public void GetHand(PacketHeader header, Connection connection, List<Model.Card> cards)
+        {
+            //Client.Hand = cards;
         }
 
         public void Greeting(PacketHeader header, Connection connection, Greeting greeting)

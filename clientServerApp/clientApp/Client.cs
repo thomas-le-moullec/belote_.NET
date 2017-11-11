@@ -15,7 +15,7 @@ namespace ClientApplication
         private bool prompt;
 
 
-        //New Variable Player
+        //New Variable Player T
         private Task work;
         private int id;
         private int team;
@@ -108,8 +108,9 @@ namespace ClientApplication
         {
             while (true)
             {
-                //if no infos display
                 string entry = Console.ReadLine();
+
+                //refresh d'information.
 
                 //Check if user wants to go around the loop
                 //Console.WriteLine("\nPress q to quit or any other key to send another message.");
