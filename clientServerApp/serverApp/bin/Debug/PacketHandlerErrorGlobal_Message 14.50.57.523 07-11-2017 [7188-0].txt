@@ -1,8 +1,0 @@
-Base Exception Type: System.IndexOutOfRangeException: L'index se trouve en dehors des limites du tableau.
-   à ServerApplication.Program.PrintIncomingMessage(PacketHeader header, Connection connection, objectToSend my_obj) dans C:\Users\53568\source\repos\clientServerApp\serverApp\Program.cs:ligne 47
-   à NetworkCommsDotNet.Tools.PacketTypeHandlerDelegateWrapper`1.Process(PacketHeader packetHeader, Connection connection, Object obj)
-   à NetworkCommsDotNet.NetworkComms.TriggerGlobalPacketHandlers(PacketHeader packetHeader, Connection connection, Object returnObject, Boolean ignoreUnknownPacketTypeOverride)
-
-Stack Trace:    à ServerApplication.Program.PrintIncomingMessage(PacketHeader header, Connection connection, objectToSend my_obj) dans C:\Users\53568\source\repos\clientServerApp\serverApp\Program.cs:ligne 47
-   à NetworkCommsDotNet.Tools.PacketTypeHandlerDelegateWrapper`1.Process(PacketHeader packetHeader, Connection connection, Object obj)
-   à NetworkCommsDotNet.NetworkComms.TriggerGlobalPacketHandlers(PacketHeader packetHeader, Connection connection, Object returnObject, Boolean ignoreUnknownPacketTypeOverride)
