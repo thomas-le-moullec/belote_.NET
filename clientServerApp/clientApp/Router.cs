@@ -37,6 +37,7 @@ namespace ClientApplication
 
         public void Subscribe()
         {
+            //Subscrive to Channels.
             NetworkComms.AppendGlobalIncomingPacketHandler<Greeting>("Greetings", Greeting);
             NetworkComms.AppendGlobalIncomingPacketHandler<Model.Task>("WhichTasks", ReceiveAction);
             NetworkComms.AppendGlobalIncomingPacketHandler<List<Model.Card>>("GetHands", GetHand);
