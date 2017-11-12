@@ -13,6 +13,7 @@ namespace Model
         private int trumpTaker;
         private List<Player> players;
         private Board roomBoard;
+        private ScoreBoard scoreBoard;
 
         public Room()
         {
@@ -20,12 +21,19 @@ namespace Model
             TrumpTaker = -1;
             Players = new List<Player>();
             RoomBoard = new Board();
+            ScoreBoard = new ScoreBoard();
         }
 
         public int Id
         {
             get { return id; }
             set { id = value; }
+        }
+
+        public ScoreBoard ScoreBoard
+        {
+            get { return scoreBoard; }
+            set { scoreBoard = value; }
         }
 
         public int TrumpTaker

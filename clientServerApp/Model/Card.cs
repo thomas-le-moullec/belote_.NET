@@ -24,6 +24,8 @@ namespace Model
         String val;
         [ProtoMember(3)]
         int points;
+        [ProtoMember(4)]
+        int idPlayer;
 
         public Types Type
         {
@@ -41,6 +43,33 @@ namespace Model
         {
             get { return points; }
             set { points = value; }
+        }
+        public int IdPlayer
+        {
+            get { return idPlayer; }
+            set { idPlayer = value; }
+        }
+
+        /// <summary>
+        /// ** Card Verification **
+        /// Convert the input string to a Card object
+        /// Checks if the Card is in the player's hand
+        /// Checks if the player is allowed to play this card
+        /// </summary>
+        /// <param name="player">Player</param>
+        /// <param name="cardStr">User input string</param>
+        /// <returns></returns>
+        public static Card VerifCard(Player player, String cardStr)
+        {
+            String[] elems = cardStr.Split(':');
+            Card card;
+
+            card = (player.Hand.First(item => (item.Val.Equals(elems[1]) && item.Type.ToString().Equals(elems[0]))));
+            if (card == null)
+            {
+                throw new Exception();
+            }
+            return (card);
         }
 
         public Card()

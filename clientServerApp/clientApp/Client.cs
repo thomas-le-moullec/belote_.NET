@@ -14,11 +14,25 @@ namespace ClientApplication
         private int serverPort;
         private bool prompt;
         private Player player;
+        private Board board;
+        private Card putCard;
 
         public Player Player
         {
             get { return player; }
             set { player = value; }
+        }
+
+        public Card PutCard
+        {
+            get { return putCard; }
+            set { putCard = value; }
+        }
+
+        public Board Board
+        {
+            get { return board; }
+            set { board = value; }
         }
 
         public Router Router
@@ -49,28 +63,30 @@ namespace ClientApplication
         {
             //Request server IP and port number
             Console.WriteLine("Please enter the server IP and port in the format 192.168.0.1:10000 and press return:");
-            string serverInfo = Console.ReadLine();
+            //string serverInfo = Console.ReadLine();
 
             //Parse the necessary information out of the provided string
-            ServerIp = serverInfo.Split(':').First();
-            ServerPort = int.Parse(serverInfo.Split(':').Last());
+            ServerIp = "127.0.0.1";//serverInfo.Split(':').First();
+            ServerPort = 8080;//int.Parse(serverInfo.Split(':').Last());
 
             //Create Router to subscribe to channels and to communicate with the Server
             Router = new Router(this);
             Router.Subscribe();
 
-            //Set Prompt, this booleen will be use to display datas on user Screen. If it is false, it is User's turn.
-            Prompt = true;
+            Board = new Board();
 
             Player = new Player();
             //Get UserName
-            Console.WriteLine("Please enter your username:");
-            Player.Username = Console.ReadLine();
+            //Console.WriteLine("Please enter your username:");
+            Player.Username = "Guest";//Console.ReadLine();
+
+            //Set Prompt, this booleen will be use to display datas on user Screen. If it is true, it is User's turn.
+            Prompt = false;
             //Set First Task
             Player.TaskState.Type = Task.TaskNature.GREETINGS;
             Router.DoActions(Player.TaskState.Type);
 
-            ScheduleTask sched = new ScheduleTask(this, 3000);
+            ScheduleTask sched = new ScheduleTask(this, 1000);
             sched.ScheduleAction();
             Run();
         }
@@ -83,7 +99,6 @@ namespace ClientApplication
         {
             while (true)
             {
-                string entry = Console.ReadLine();
 
                 //refresh d'information.
 

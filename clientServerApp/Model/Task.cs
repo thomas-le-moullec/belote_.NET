@@ -22,7 +22,8 @@ namespace Model
             GET_TRUMP,
             GET_CARD,
             GET_BOARD,
-            GET_HAND
+            GET_HAND,
+            GET_SCORES
         }
 
         [ProtoMember(1)]

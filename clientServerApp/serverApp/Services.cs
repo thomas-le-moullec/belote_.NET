@@ -9,10 +9,8 @@ namespace serverApp
 {
     public class Services
     {
-        Random rnd;
         public Services()
         {
-            rnd = new Random();
         }
 
         /// <summary>
@@ -23,13 +21,15 @@ namespace serverApp
         /// <param name="player">Player we are distributing the cards to</param>
         /// <param name="pick">Card list from which we take the cards</param>
         /// <param name="number">Number of cards we distribute</param>
-        public void DistribCards(Player player, List<Card> pick, int number) // a voir si l'on ne prend pas un board en param
+        public static void DistribCards(Player player, List<Card> pick, int number)
         {
+            Random rnd = new Random();
             int range;
 
             for (int i = 0; i < number; i++)
             {
                 range = rnd.Next(0, pick.Count());
+                pick[range].IdPlayer = player.Id;
                 player.Hand.Add(pick[range]);
                 pick.RemoveAt(range);
             }
@@ -40,8 +40,9 @@ namespace serverApp
         /// Chose trump from a random card taken in the pick and remove this card from the pick
         /// </summary>
         /// <param name="board">Contains the trump</param>
-        public void TrumpGeneration(Board board)
+        public static void TrumpGeneration(Board board)
         {
+            Random rnd = new Random();
             int range;
 
             range = rnd.Next(0, board.Pick.Count());
@@ -49,26 +50,10 @@ namespace serverApp
             board.Pick.RemoveAt(range);
         }
 
-        /// <summary>
-        /// ** Card Verification **
-        /// Convert the input string to a Card object
-        /// Checks if the Card is in the player's hand
-        /// Checks if the player is allowed to play this card
-        /// </summary>
-        /// <param name="player">Player</param>
-        /// <param name="cardStr">User input string</param>
-        /// <returns></returns>
-        public Card VerifCard(Player player, String cardStr)
+        public static void DistribTrump(Player player, Board board)
         {
-            String[] elems = cardStr.Split(':');
-            Card card;
-
-            card = (player.Hand.First(item => (item.Val == elems[0] && item.Type.ToString() == elems[1])));
-            if (card == null)
-            {
-                throw new Exception();
-            }
-            return (card);
+            player.Hand.Add(board.Trump);
+            board.Trump.IdPlayer = player.Id;
         }
 
         /// <summary>
@@ -79,23 +64,9 @@ namespace serverApp
         /// <param name="player">Player</param>
         /// <param name="board">Board</param>
         /// <param name="cardStr">Player's input string</param>
-        public void PutCard(Player player, Board board, String cardStr)
+        public static void PutCard(Player player, Board board, Card card)
         {
-            Card card = new Card();
-            bool tryAgain = true;
-            while (tryAgain)
-            {
-                try
-                {
-                    card = VerifCard(player, cardStr);
-                    tryAgain = false;
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("CHEATER : {0}", e);
-                }
-            }
-            board.Fold.Add(player.Hand.First(item => item.Equals(card) == true));
+            board.Fold.Add(card);
             player.Hand.Remove(card);
         }
 
@@ -103,25 +74,42 @@ namespace serverApp
         /// ** Reset the cards' points given to the trump type
         /// </summary>
         /// <param name="room"></param>
-        public void SetCardPoints(Room room)
+        public static void SetCardPoints(Room room)
         {
             // points des cartes des joueurs
             foreach (Player player in room.Players)
             {
                 foreach (Card card in player.Hand)
                 {
-                    if (card.Type.Equals(room.RoomBoard.Trump.Type) && card.Val == "V")
+                    if (card.Type.Equals(room.RoomBoard.Trump.Type) && card.Val.Equals("V"))
                         card.Points = 20;
-                    if (card.Type.Equals(room.RoomBoard.Trump.Type) && card.Val == "9")
+                    if (card.Type.Equals(room.RoomBoard.Trump.Type) && card.Val.Equals("9"))
                         card.Points = 14;
                 }
             }
         }
 
-        public Random Rnd
+        public static int WinFold(List<Card> fold)
         {
-            get { return rnd; }
-            set { rnd = value; }
+            int idWinner = -1;
+            int bestScore = -1;
+
+            foreach (var card in fold)
+            {
+                if (card.Points > bestScore)
+                {
+                    idWinner = card.IdPlayer;
+                }
+            }
+            return (idWinner);
+        }
+
+        public static void SetScores(List<Card> fold, List<Player> players)
+        {
+            foreach (var card in fold)
+            {
+                players[card.IdPlayer - 1].Score += card.Points;
+            }
         }
     }
 }
