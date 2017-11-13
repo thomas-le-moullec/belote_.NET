@@ -116,7 +116,7 @@ namespace ServerApplication
 
         public void WhichTasks(PacketHeader header, Connection connection, int id)
         {
-            Console.WriteLine("WHICH TASK!\n");
+            //Console.WriteLine("WHICH TASK!\n");
             connection.SendObject("WhichTasks", Room.Players[id - 1].TaskState);
         }
 
@@ -130,7 +130,7 @@ namespace ServerApplication
 
         public void GetBoard(PacketHeader header, Connection connection, int id)
         {
-            Console.WriteLine("GET Board!\n");
+            //Console.WriteLine("GET Board!\n");
             connection.SendObject("GetBoards", Room.RoomBoard);
         }
 
@@ -144,8 +144,16 @@ namespace ServerApplication
 
         public void GetScores(PacketHeader header, Connection connection, int id)
         {
-            Console.WriteLine("GET Scores!\n");
-            connection.SendObject("GetScores", Room.ScoreBoard);
+            /*Console.WriteLine("GET Scores!\n");
+            Console.WriteLine("TEAM SCORES 1:" + Room.ScoreBoard.ScoreTeams[0] + "\n");
+            Console.WriteLine("TEAM SCORES 2:" + Room.ScoreBoard.ScoreTeams[1] + "\n");*/
+
+            ScoreBoard scoreBoard = new ScoreBoard();
+            scoreBoard.IdWinnerFold = Room.ScoreBoard.IdWinnerFold;
+            scoreBoard.CardWinnerFold = Room.ScoreBoard.CardWinnerFold;
+            scoreBoard.ScoreTeams[0] = Room.ScoreBoard.ScoreTeams[0];
+            scoreBoard.ScoreTeams[1] = Room.ScoreBoard.ScoreTeams[1];
+            connection.SendObject("GetScores", scoreBoard);
             Room.Players[id - 1].TaskState.Type = Task.TaskNature.WAIT;
             if (Room.Players[id - 1].Hand.Count != 0)
             {
@@ -254,7 +262,7 @@ namespace ServerApplication
         public void PutCard(PacketHeader header, Connection connection, Card card)
         {
             int id = card.IdPlayer;
-            int nextPlayer = (card.IdPlayer % 5) + 1;
+            int nextPlayer = (card.IdPlayer % 4) + 1;
             Player player = Room.Players[id - 1];
             //Vérification à faire ici et non côté client.
             Services.PutCard(player, Room.RoomBoard, card);
@@ -266,10 +274,12 @@ namespace ServerApplication
             else
             {
                 Console.WriteLine("WE HAVE TO DETERMINE THE WINNER!\n");
-                nextPlayer = Services.WinFold(Room.RoomBoard.Fold, room.RoomBoard.Trump.GetType());
+                nextPlayer = Services.WinFold(Room.RoomBoard);
+                Services.SetScores(Room.RoomBoard.Fold, Room.Players, nextPlayer);
                 Room.ScoreBoard.ScoreTeams[0] = Room.Players[0].Score + Room.Players[2].Score;
                 Room.ScoreBoard.ScoreTeams[1] = Room.Players[1].Score + Room.Players[3].Score;
-                Services.SetScores(Room.RoomBoard.Fold, Room.Players);
+                Console.WriteLine("TEAM 1:" + Room.ScoreBoard.ScoreTeams[0] + "\n");
+                Console.WriteLine("TEAM 2:" + Room.ScoreBoard.ScoreTeams[1] + "\n");
                 Room.ScoreBoard.IdWinnerFold = nextPlayer;
                 foreach (var bestCard in Room.RoomBoard.Fold)
                 {
@@ -280,10 +290,15 @@ namespace ServerApplication
                 }
                 Room.RoomBoard.Fold.Clear();
             }
-            Room.Players[nextPlayer - 1].TaskState.Type = Task.TaskNature.PUT_CARD;
+            if (Room.Players[nextPlayer - 1].Hand.Count != 0)
+            {
+                Room.Players[nextPlayer - 1].TaskState.Type = Task.TaskNature.PUT_CARD;
+            }
             Room.RoomBoard.IdTurn = nextPlayer;
+            Console.WriteLine("FOLD SIZE :"+Room.RoomBoard.Fold.Count+"\n");
             if (Room.RoomBoard.Fold.Count == 0)
             {
+                Console.WriteLine("IN FOLD SIZE :" + Room.RoomBoard.Fold.Count + "\n");
                 foreach (var gamer in Room.Players)
                 {
                     gamer.TaskState.Type = Task.TaskNature.GET_SCORES;

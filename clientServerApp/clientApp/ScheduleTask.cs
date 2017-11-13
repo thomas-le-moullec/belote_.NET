@@ -38,6 +38,13 @@ namespace clientApp
             timer.Enabled = true;
         }
 
+        /// <summary>   Handler, called when the event time. </summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+        ///
+        /// <param name="source">   Source. </param>
+        /// <param name="e">        Elapsed event information. </param>
+
         public void EventTimeHandler(Object source, ElapsedEventArgs e)
         {
             if (Client.Prompt == false)

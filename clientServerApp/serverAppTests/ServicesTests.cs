@@ -21,7 +21,7 @@ namespace serverApp.Tests
         }
 
         [TestMethod()]
-        public static void DistribCardsTest()
+        public void DistribCardsTest()
         {
             Player player = new Player();
             List<Card> pick = new List<Card>();
@@ -40,7 +40,6 @@ namespace serverApp.Tests
         [TestMethod()]
         public void TrumpGenerationTest()
         {
-            // public void TrumpGeneration(Board board)
             Board board = new Board();
             Card card = new Card();
 
@@ -55,43 +54,6 @@ namespace serverApp.Tests
             Assert.AreEqual(board.Trump.Points, card.Points);
             Assert.AreEqual(board.Pick.Count(), 0);
         }
-
-      /*  [TestMethod()]
-        public void VerifCardTest()
-        {
-            Player player = new Player();
-            Card card1 = new Card();
-            String cardStr;
-            String cardStr2;
-
-            cardStr = "Q:HEART";
-            cardStr2 = "K:HEART";
-            player.Hand.Add(new Card() { Type = Card.Types.HEART, Val = "Q", Points = 0});
-            player.Hand.Add(new Card() { Type = Card.Types.CLUB, Val = "K", Points = 0});
-            player.Hand.Add(new Card() { Type = Card.Types.CLUB, Val = "10", Points = 0});
-            player.Hand.Add(new Card() { Type = Card.Types.SPADE, Val = "As", Points = 0});
-            try
-            {
-                card1 = Services.VerifCard(player, cardStr);
-            }
-            catch
-            {
-                Assert.Fail();
-            }
-            Assert.AreEqual(card1.Type, player.Hand[0].Type);
-            Assert.AreEqual(card1.Val, player.Hand[0].Val);
-            Assert.AreEqual(card1.Points, player.Hand[0].Points);
-            try
-            {
-                Services.VerifCard(player, cardStr2);
-            }
-            catch
-            {
-                return ;
-            }
-            Assert.Fail();
-            return ;
-        }*/
 
         [TestMethod()]
         public void PutCardTest()
@@ -121,6 +83,48 @@ namespace serverApp.Tests
             Services.DistribTrump(player, board);
             Assert.AreEqual(player.Hand[0].Type, Card.Types.HEART);
             Assert.AreEqual(player.Hand[0].Val, "Q");
+        }
+
+        [TestMethod()]
+        public void SetCardPointsTest()
+        {
+            Room room = new Room();
+
+            room.RoomBoard.Trump = new Card { Type = Card.Types.HEART };
+            room.Players = new List<Player>();
+            room.Players.Add(new Player());
+            room.Players[0].Hand.Add(new Card { Type = Card.Types.HEART, Val = "J", Points = 0 });
+            room.Players[0].Hand.Add(new Card { Type = Card.Types.CLUB, Val = "Q", Points = 0 });
+            room.Players.Add(new Player());
+            room.Players[1].Hand.Add(new Card { Type = Card.Types.HEART, Val = "9", Points = 0 });
+
+            Services.SetCardPoints(room);
+            Assert.AreEqual(room.Players[0].Hand[0].Points, 20);
+            Assert.AreEqual(room.Players[0].Hand[1].Points, 0);
+            Assert.AreEqual(room.Players[1].Hand[0].Points, 14);
+        }
+
+        [TestMethod()]
+        public void WinFoldTest()
+        {
+            Board board = new Board();
+            board.Fold = new List<Card>();
+
+            board.Trump = new Card() { Type = Card.Types.HEART, Val = "8", Points = 0};
+            board.Fold.Add(new Card() { Type = Card.Types.CLUB, Val = "J", Points = 2, IdPlayer = 0});
+            board.Fold.Add(new Card() { Type = Card.Types.CLUB, Val = "As", Points = 11, IdPlayer = 1 });
+            board.Fold.Add(new Card() { Type = Card.Types.HEART, Val = "8", Points = 0, IdPlayer = 2 });
+            board.Fold.Add(new Card() { Type = Card.Types.CLUB, Val = "7", Points = 0, IdPlayer = 3 });
+
+            int id = Services.WinFold(board);
+            Assert.AreEqual(id, 2);
+            /*fold[2].Val = "8";
+            fold[2].Points = 0;
+            id = Services.WinFold(fold, Card.Types.HEART.GetType());
+            Assert.AreEqual(id, 2);
+            fold[2].Type = Card.Types.CLUB;
+            id = Services.WinFold(fold, Card.Types.HEART.GetType());
+            Assert.AreEqual(id, 1);*/
         }
     }
 }
