@@ -11,7 +11,7 @@ namespace ServerApplication
 {
     class Server
     {
-        private Room room;//will become a pool of rooms (LIST)
+        private Room room;
 
         public Room Room
         {
