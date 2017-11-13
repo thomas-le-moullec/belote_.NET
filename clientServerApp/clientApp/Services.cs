@@ -32,7 +32,7 @@ namespace clientApp
                     putCard = Card.VerifCard(client.Player, response, client.Board);
                     tryAgain = false;
                 }
-                catch (Exception e)
+                catch
                 {
                     Console.WriteLine("CHEATER : Play a correct card\n");
                 }
