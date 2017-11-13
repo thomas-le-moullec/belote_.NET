@@ -254,7 +254,7 @@ namespace ServerApplication
         public void PutCard(PacketHeader header, Connection connection, Card card)
         {
             int id = card.IdPlayer;
-            int nextPlayer = (card.IdPlayer % 5) + 1;
+            int nextPlayer = (card.IdPlayer % 4) + 1;
             Player player = Room.Players[id - 1];
             //Vérification à faire ici et non côté client.
             Services.PutCard(player, Room.RoomBoard, card);
