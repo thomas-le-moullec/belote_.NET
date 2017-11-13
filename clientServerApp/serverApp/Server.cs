@@ -29,7 +29,7 @@ namespace ServerApplication
             CreateEndPoints();
 
             //Start listening for incoming connections
-            Connection.StartListening(ConnectionType.TCP, new System.Net.IPEndPoint(System.Net.IPAddress.Any, 8080));
+            Connection.StartListening(ConnectionType.TCP, new System.Net.IPEndPoint(System.Net.IPAddress.Any, 0));
             //Print out the IPs and ports we are now listening on
             Console.WriteLine("Server listening for TCP connection on:");
             foreach (System.Net.IPEndPoint localEndPoint in Connection.ExistingLocalListenEndPoints(ConnectionType.TCP))
@@ -86,9 +86,9 @@ namespace ServerApplication
             //Start of the Game
             if (idPlayer == 4)
             {
-                Console.WriteLine("WE WILL START THE GAME !\n");
+                Console.WriteLine("START THE GAME !\n");
                 Services.TrumpGeneration(Room.RoomBoard);
-                Console.WriteLine("TRUMP Value at the initialisation TYPE:"+Room.RoomBoard.Trump.Type+" VALUE :"+Room.RoomBoard.Trump.Val+"\n");
+                //Console.WriteLine("TRUMP Value at the initialisation TYPE:"+Room.RoomBoard.Trump.Type+" VALUE :"+Room.RoomBoard.Trump.Val+"\n");
                 Services.SetCardPoints(Room);//a vérifier
                 foreach (var player in players)
                 {
@@ -174,9 +174,9 @@ namespace ServerApplication
 
         public void GetHands(PacketHeader header, Connection connection, int id)
         {
-            Console.WriteLine("-------- GET IN THE GETHANDS HANDLER --------");
+            //Console.WriteLine("-------- GET IN THE GETHANDS HANDLER --------");
             connection.SendObject("GetHands", Room.Players[id - 1].Hand);
-            Console.WriteLine("BEFORE GET HAND id:" + id + " will be " + Room.Players[id - 1].TaskState.Type + "!\n");
+            //Console.WriteLine("BEFORE GET HAND id:" + id + " will be " + Room.Players[id - 1].TaskState.Type + "!\n");
             Room.Players[id - 1].TaskState.Type = Task.TaskNature.WAIT;
             if (Room.RoomBoard.IdTurn == -1 && id == 1)
             {
@@ -187,7 +187,7 @@ namespace ServerApplication
             {
                 Room.Players[Room.RoomBoard.IdTurn - 1].TaskState.Type = Task.TaskNature.PUT_CARD;
             }
-            Console.WriteLine("AFTER GET HAND id:" + id + " will be " + Room.Players[id - 1].TaskState.Type + "!\n");
+            //Console.WriteLine("AFTER GET HAND id:" + id + " will be " + Room.Players[id - 1].TaskState.Type + "!\n");
         }
 
         /// <summary>   Tells the client to diplay the trump </summary>
@@ -200,8 +200,8 @@ namespace ServerApplication
 
         public void GetTrump(PacketHeader header, Connection connection, int id)
         {
-            Console.WriteLine("GET TRUMP!\n");
-            Console.WriteLine("TRUMP Value IN GET TRUMP TYPE:" + Room.RoomBoard.Trump.Type + " VALUE :" + Room.RoomBoard.Trump.Val + "\n");
+            //Console.WriteLine("GET TRUMP!\n");
+            //Console.WriteLine("TRUMP Value IN GET TRUMP TYPE:" + Room.RoomBoard.Trump.Type + " VALUE :" + Room.RoomBoard.Trump.Val + "\n");
             connection.SendObject("GetTrumps", Room.RoomBoard.Trump);
         }
 
@@ -215,16 +215,16 @@ namespace ServerApplication
 
         public void GetResponses(PacketHeader header, Connection connection, Response response)
         {
-            Console.WriteLine("Response From player :"+response.Id+" and text: "+response.Text+"\n");
+            //Console.WriteLine("Response From player :"+response.Id+" and text: "+response.Text+"\n");
             //Response for GET TRUMP
             if (Room.Players[response.Id - 1].TaskState.Type == Task.TaskNature.GET_TRUMP)
             {
                 // Player accepted the trump
-                Console.WriteLine("GET TRUMP SERVER RESPONSE\n");
+                //Console.WriteLine("GET TRUMP SERVER RESPONSE\n");
                 if (string.Equals(response.Text, "Y", StringComparison.CurrentCultureIgnoreCase) || string.Equals(response.Text, "Yes", StringComparison.CurrentCultureIgnoreCase))
                 {
                     //distribute Cards.
-                    Console.WriteLine("DETECTED POSITIVE RESPONSE\n");
+                    //Console.WriteLine("DETECTED POSITIVE RESPONSE\n");
                     foreach (var player in Room.Players)
                     {
                         if (player.Id.Equals(response.Id) == false)
@@ -268,18 +268,18 @@ namespace ServerApplication
             Services.PutCard(player, Room.RoomBoard, card);
             if (Room.RoomBoard.Fold.Count < 4)
             {
-                Console.WriteLine("FOLD NOT FULL!\n");
+                //Console.WriteLine("FOLD NOT FULL!\n");
                 player.TaskState.Type = Task.TaskNature.WAIT;
             }
             else
             {
-                Console.WriteLine("WE HAVE TO DETERMINE THE WINNER!\n");
+                //Console.WriteLine("WE HAVE TO DETERMINE THE WINNER!\n");
                 nextPlayer = Services.WinFold(Room.RoomBoard);
                 Services.SetScores(Room.RoomBoard.Fold, Room.Players, nextPlayer);
                 Room.ScoreBoard.ScoreTeams[0] = Room.Players[0].Score + Room.Players[2].Score;
                 Room.ScoreBoard.ScoreTeams[1] = Room.Players[1].Score + Room.Players[3].Score;
-                Console.WriteLine("TEAM 1:" + Room.ScoreBoard.ScoreTeams[0] + "\n");
-                Console.WriteLine("TEAM 2:" + Room.ScoreBoard.ScoreTeams[1] + "\n");
+                //Console.WriteLine("TEAM 1:" + Room.ScoreBoard.ScoreTeams[0] + "\n");
+                //Console.WriteLine("TEAM 2:" + Room.ScoreBoard.ScoreTeams[1] + "\n");
                 Room.ScoreBoard.IdWinnerFold = nextPlayer;
                 foreach (var bestCard in Room.RoomBoard.Fold)
                 {
@@ -295,10 +295,10 @@ namespace ServerApplication
                 Room.Players[nextPlayer - 1].TaskState.Type = Task.TaskNature.PUT_CARD;
             }
             Room.RoomBoard.IdTurn = nextPlayer;
-            Console.WriteLine("FOLD SIZE :"+Room.RoomBoard.Fold.Count+"\n");
+            //Console.WriteLine("FOLD SIZE :"+Room.RoomBoard.Fold.Count+"\n");
             if (Room.RoomBoard.Fold.Count == 0)
             {
-                Console.WriteLine("IN FOLD SIZE :" + Room.RoomBoard.Fold.Count + "\n");
+              //  Console.WriteLine("IN FOLD SIZE :" + Room.RoomBoard.Fold.Count + "\n");
                 foreach (var gamer in Room.Players)
                 {
                     gamer.TaskState.Type = Task.TaskNature.GET_SCORES;

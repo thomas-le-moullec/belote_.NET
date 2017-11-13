@@ -60,37 +60,37 @@ namespace ClientApplication
         {
             if (task == Model.Task.TaskNature.GREETINGS)
             {
-                Console.WriteLine("Sending message to server saying '" + Client.Player.Username + "'");
+                //Console.WriteLine("Sending message to server saying '" + Client.Player.Username + "'");
                 NetworkComms.SendObject<string>("Greetings", Client.ServerIp, Client.ServerPort, Client.Player.Username);
             }
 
             if (task == Model.Task.TaskNature.ASKFORTASK)
             {
-                Console.WriteLine("Ask for Task");
+            //    Console.WriteLine("Ask for Task");
                 NetworkComms.SendObject<int>("WhichTasks", Client.ServerIp, Client.ServerPort, Client.Player.Id);
             }
 
             if (task == Model.Task.TaskNature.GET_HAND)
             {
-                Console.WriteLine("Client will get the HAND");
+              //  Console.WriteLine("Client will get the HAND");
                 NetworkComms.SendObject<int>("GetHands", Client.ServerIp, Client.ServerPort, Client.Player.Id);
             }
 
             if (task == Model.Task.TaskNature.GET_TRUMP)
             {
-                Console.WriteLine("Client will get the TRUMP");
+                //Console.WriteLine("Client will get the TRUMP");
                 NetworkComms.SendObject<int>("GetTrumps", Client.ServerIp, Client.ServerPort, Client.Player.Id);
             }
 
             if (task == Model.Task.TaskNature.GET_BOARD)
             {
-                Console.WriteLine("Client will get the BOARD");
+                //Console.WriteLine("Client will get the BOARD");
                 NetworkComms.SendObject<int>("GetBoards", Client.ServerIp, Client.ServerPort, Client.Player.Id);
             }
 
             if (task == Model.Task.TaskNature.PUT_CARD)
             {
-                Console.WriteLine("Client will PUT a CARD");
+                //Console.WriteLine("Client will PUT a CARD");
                 DoActions(Model.Task.TaskNature.GET_BOARD);
                 Client.PutCard = Services.PutCard(Client);
                 NetworkComms.SendObject<Model.Card>("PutCards", Client.ServerIp, Client.ServerPort, Client.PutCard);
@@ -98,13 +98,12 @@ namespace ClientApplication
 
             if (task == Model.Task.TaskNature.GET_SCORES)
             {
-                Console.WriteLine("Client will GET THE SCORES");
+                //Console.WriteLine("Client will GET THE SCORES");
                 NetworkComms.SendObject<int>("GetScores", Client.ServerIp, Client.ServerPort, Client.Player.Id);
             }
 
             if (task == Model.Task.TaskNature.WAIT)
             {
-                Console.WriteLine("Client is WAITING");
                 //Display status of the game
             }
         }
@@ -119,7 +118,7 @@ namespace ClientApplication
 
         public void ReceiveAction(PacketHeader header, Connection connection, Model.Task task)
         {
-            Console.WriteLine("Receive action type :"+task.Type);
+            //Console.WriteLine("Receive action type :"+task.Type);
             Client.Player.TaskState.Type = task.Type;
             DoActions(task.Type);
         }
@@ -196,6 +195,7 @@ namespace ClientApplication
             else
             {
                 Client.Player.Hand.Remove(Client.PutCard);
+                Console.WriteLine("Waiting for Others players...\n");
             }
         }
 
@@ -237,7 +237,7 @@ namespace ClientApplication
             //Get Data from the HandShake
             Client.Player.Id = greeting.Id;
             Client.Player.Team = greeting.Team;
-            Console.WriteLine(greeting.Message + " , your will play with id :"+greeting.Id+" and are in the TEAM"+greeting.Team);
+            Console.WriteLine(greeting.Message + " , your will play with id :"+greeting.Id+" and are in the TEAM "+greeting.Team);
         }
     }
 }

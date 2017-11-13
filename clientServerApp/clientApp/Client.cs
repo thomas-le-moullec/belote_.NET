@@ -63,11 +63,11 @@ namespace ClientApplication
         {
             //Request server IP and port number
             Console.WriteLine("Please enter the server IP and port in the format 192.168.0.1:10000 and press return:");
-            //string serverInfo = Console.ReadLine();
+            string serverInfo = Console.ReadLine();
 
             //Parse the necessary information out of the provided string
-            ServerIp = "127.0.0.1";//serverInfo.Split(':').First();
-            ServerPort = 8080;//int.Parse(serverInfo.Split(':').Last());
+            ServerIp = serverInfo.Split(':').First();
+            ServerPort = int.Parse(serverInfo.Split(':').Last());
 
             //Create Router to subscribe to channels and to communicate with the Server
             Router = new Router(this);
@@ -77,8 +77,8 @@ namespace ClientApplication
 
             Player = new Player();
             //Get UserName
-            //Console.WriteLine("Please enter your username:");
-            Player.Username = "Guest";//Console.ReadLine();
+            Console.WriteLine("Please enter your username:");
+            Player.Username = Console.ReadLine();
 
             //Set Prompt, this booleen will be use to display datas on user Screen. If it is true, it is User's turn.
             Prompt = false;

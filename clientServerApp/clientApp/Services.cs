@@ -34,7 +34,7 @@ namespace clientApp
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("CHEATER : Play a correct card. {0}", e);
+                    Console.WriteLine("CHEATER : Play a correct card\n");
                 }
             }
             client.Prompt = false;
@@ -54,7 +54,7 @@ namespace clientApp
             {
                 Console.WriteLine(">Type : "+card.Type+"\t\t\t Value : "+card.Val+" \t\t\t Player("+card.IdPlayer+")\t\t\t Points : "+card.Points+"\n");
             }
-            Console.WriteLine("--------------------------------------------------------------------\n");
+            Console.WriteLine("------------------------------------------------------------\n");
             DisplayTrump(board);
         }
 
@@ -71,7 +71,7 @@ namespace clientApp
             {
                 Console.WriteLine(">Type : " + card.Type + "\t\t\t Value : " + card.Val + "\t\t\t Points : "+card.Points+"\n");
             }
-            Console.WriteLine("-----------------------------------------------------------------\n");
+            Console.WriteLine("------------------------------------------------------------\n");
         }
 
         /// <summary>   Displays the trump </summary>
@@ -82,9 +82,9 @@ namespace clientApp
 
         public static void DisplayTrump(Board board)
         {
-            Console.WriteLine("########################### TRUMP ###############################\n");
+            Console.WriteLine("########################### TRUMP ###########################\n");
             Console.WriteLine(">Type : " + board.Trump.Type + "\t\t\t Value : " + board.Trump.Val + "\t\t\t Points : " +board.Trump.Points+ "\n");
-            Console.WriteLine("-----------------------------------------------------------------\n");
+            Console.WriteLine("------------------------------------------------------------\n");
         }
 
         /// <summary>   Displays the game's results </summary>
@@ -108,7 +108,7 @@ namespace clientApp
             {
                 Console.WriteLine("Congratulations, you win this one !\n");
             }
-            Console.WriteLine("########################### <3 BYE <3 #################################\n");
+            Console.WriteLine("########################### <3 BYE <3 ###########################\n");
         }
 
         /// <summary>   Displays the fold's results </summary>
@@ -122,7 +122,7 @@ namespace clientApp
             Console.WriteLine("########################### END OF THE FOLD ###########################\n");
             //Maybe add Username
             Console.WriteLine("Player "+scoreBoard.IdWinnerFold+" won this one with ["+scoreBoard.CardWinnerFold.Type+":"+scoreBoard.CardWinnerFold.Val+"]. He has to play now !\n");
-            Console.WriteLine("-----------------------------------------------------------------------\n");
+            Console.WriteLine("------------------------------------------------------------\n");
         }
     }
 }
