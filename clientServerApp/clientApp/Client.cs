@@ -84,7 +84,14 @@ namespace ClientApplication
             Prompt = false;
             //Set First Task
             Player.TaskState.Type = Task.TaskNature.GREETINGS;
-            Router.DoActions(Player.TaskState.Type);
+            try
+            {
+                Router.DoActions(Player.TaskState.Type);
+            }
+            catch
+            {
+                System.Environment.Exit(1);
+            }
 
             ScheduleTask sched = new ScheduleTask(this, 1000);
             sched.ScheduleAction();
