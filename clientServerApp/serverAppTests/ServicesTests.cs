@@ -12,7 +12,7 @@ namespace serverApp.Tests
     [TestClass()]
     public class ServicesTests
     {
-        Services service = new Services();
+       // Services service = new Services();
 
         [TestMethod()]
         public void ServicesTest()
@@ -21,7 +21,7 @@ namespace serverApp.Tests
         }
 
         [TestMethod()]
-        public void DistribCardsTest()
+        public static void DistribCardsTest()
         {
             Player player = new Player();
             List<Card> pick = new List<Card>();
@@ -32,7 +32,7 @@ namespace serverApp.Tests
             pick.Add(new Card() { Type = Card.Types.HEART, Val = "10", Points = 10 });
             pick.Add(new Card() { Type = Card.Types.CLUB, Val = "7", Points = 0 });
 
-            Service.DistribCards(player, pick, 3);
+            Services.DistribCards(player, pick, 3);
             Assert.AreEqual(player.Hand.Count(), 3);
             Assert.AreEqual(pick.Count(), 1);
         }
@@ -49,14 +49,14 @@ namespace serverApp.Tests
             card.Points = 0;
             board.Pick = new List<Card>();
             board.Pick.Add(card);
-            Service.TrumpGeneration(board);
+            Services.TrumpGeneration(board);
             Assert.AreEqual(board.Trump.Type, card.Type);
             Assert.AreEqual(board.Trump.Val, card.Val);
             Assert.AreEqual(board.Trump.Points, card.Points);
             Assert.AreEqual(board.Pick.Count(), 0);
         }
 
-        [TestMethod()]
+      /*  [TestMethod()]
         public void VerifCardTest()
         {
             Player player = new Player();
@@ -72,7 +72,7 @@ namespace serverApp.Tests
             player.Hand.Add(new Card() { Type = Card.Types.SPADE, Val = "As", Points = 0});
             try
             {
-                card1 = Service.VerifCard(player, cardStr);
+                card1 = Services.VerifCard(player, cardStr);
             }
             catch
             {
@@ -83,7 +83,7 @@ namespace serverApp.Tests
             Assert.AreEqual(card1.Points, player.Hand[0].Points);
             try
             {
-                Service.VerifCard(player, cardStr2);
+                Services.VerifCard(player, cardStr2);
             }
             catch
             {
@@ -91,7 +91,7 @@ namespace serverApp.Tests
             }
             Assert.Fail();
             return ;
-        }
+        }*/
 
         [TestMethod()]
         public void PutCardTest()
@@ -99,25 +99,28 @@ namespace serverApp.Tests
             Player player1 = new Player();
             Player player2 = new Player();
             Board board = new Board();
-            String cardStr1;
-            String cardStr2;
 
-            cardStr1 = "Q:HEART";
-            cardStr2 = "K:CLUB";
             player1.Hand.Add(new Card() { Type = Card.Types.HEART, Val = "Q", Points = 0 });
             player2.Hand.Add(new Card() { Type = Card.Types.CLUB, Val = "K", Points = 0 });
-            Service.PutCard(player1, board, cardStr1);
-            Service.PutCard(player2, board, cardStr2);
+            Services.PutCard(player1, board, new Card() { Type = Card.Types.HEART, Val = "Q", Points = 0 });
+            Services.PutCard(player2, board, new Card() { Type = Card.Types.CLUB, Val = "K", Points = 0 });
             Assert.AreEqual(board.Fold[0].Type, Card.Types.HEART);
             Assert.AreEqual(board.Fold[0].Val, "Q");
             Assert.AreEqual(board.Fold[1].Type, Card.Types.CLUB);
             Assert.AreEqual(board.Fold[1].Val, "K");
         }
 
-        public Services Service
+        [TestMethod()]
+        public void DistribTrumpTest()
         {
-            get { return service; }
-            set { service = value; }
+            Player player = new Player();
+            Board board = new Board();
+
+            board.Trump = new Card() { Type = Card.Types.HEART, Val = "Q", Points = 0 };
+
+            Services.DistribTrump(player, board);
+            Assert.AreEqual(player.Hand[0].Type, Card.Types.HEART);
+            Assert.AreEqual(player.Hand[0].Val, "Q");
         }
     }
 }

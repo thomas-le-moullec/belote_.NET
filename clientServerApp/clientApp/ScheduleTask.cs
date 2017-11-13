@@ -19,6 +19,10 @@ namespace clientApp
             Time = t;
         }
 
+        /// <summary>   Calls 'DoAction' every 'time' seconds, asking for a task</summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+
         public void ScheduleAction()
         {
             Timer timer = new Timer();
@@ -34,7 +38,7 @@ namespace clientApp
             timer.Enabled = true;
         }
 
-        public void EventTimeHandler(Object source, System.Timers.ElapsedEventArgs e)
+        public void EventTimeHandler(Object source, ElapsedEventArgs e)
         {
             if (Client.Prompt == false)
             {

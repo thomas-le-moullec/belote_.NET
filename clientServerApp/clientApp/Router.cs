@@ -35,9 +35,12 @@ namespace ClientApplication
             Client = client;
         }
 
+        /// <summary>   Subscribe to different channels </summary>
+        /// <remarks>   , 13/11/2017. </remarks>
+
         public void Subscribe()
         {
-            //Subscrive to Channels.
+            //Subscribe to Channels.
             NetworkComms.AppendGlobalIncomingPacketHandler<Greeting>("Greetings", Greeting);
             NetworkComms.AppendGlobalIncomingPacketHandler<Model.Task>("WhichTasks", ReceiveAction);
             NetworkComms.AppendGlobalIncomingPacketHandler<List<Model.Card>>("GetHands", GetHand);
@@ -46,6 +49,12 @@ namespace ClientApplication
             NetworkComms.AppendGlobalIncomingPacketHandler<Boolean>("PutCards", PutCard);
             NetworkComms.AppendGlobalIncomingPacketHandler<Model.ScoreBoard>("GetScores", GetScores);
         }
+
+        /// <summary>   Executes operation depending on the attributed task </summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+        ///
+        /// <param name="task"> The task. </param>
 
         public void DoActions(Model.Task.TaskNature task)
         {
@@ -100,6 +109,14 @@ namespace ClientApplication
             }
         }
 
+        /// <summary>   Calls DoAction with the task.Type parameter </summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+        ///
+        /// <param name="header">       The header. </param>
+        /// <param name="connection">   The connection. </param>
+        /// <param name="task">         The task. </param>
+
         public void ReceiveAction(PacketHeader header, Connection connection, Model.Task task)
         {
             Console.WriteLine("Receive action type :"+task.Type);
@@ -107,12 +124,28 @@ namespace ClientApplication
             DoActions(task.Type);
         }
 
+        /// <summary>   Gets the player's hand </summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+        ///
+        /// <param name="header">       The header. </param>
+        /// <param name="connection">   The connection. </param>
+        /// <param name="cards">        The cards. </param>
+
         public void GetHand(PacketHeader header, Connection connection, List<Model.Card> cards)
         {
             Console.WriteLine("IN GET HAND CLIENT ROUTER\n");
             Client.Player.Hand = cards;
             Services.DisplayHand(Client.Player);
         }
+
+        /// <summary>   Displays the player's score </summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+        ///
+        /// <param name="header">       The header. </param>
+        /// <param name="connection">   The connection. </param>
+        /// <param name="scoreBoard">   The score board. </param>
 
         public void GetScores(PacketHeader header, Connection connection, ScoreBoard scoreBoard)
         {
@@ -128,6 +161,14 @@ namespace ClientApplication
             }
         }
 
+        /// <summary>   Displays the game Board </summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+        ///
+        /// <param name="header">       The header. </param>
+        /// <param name="connection">   The connection. </param>
+        /// <param name="board">        The board. </param>
+
         public void GetBoard(PacketHeader header, Connection connection, Model.Board board)
         {
             Console.WriteLine("TRUMP Value IN GET BOARD TYPE:" + board.Trump.Type + " VALUE :" + board.Trump.Val + "\n");
@@ -135,6 +176,14 @@ namespace ClientApplication
             Services.DisplayBoard(board);
             Services.DisplayHand(Client.Player);
         }
+
+        /// <summary>   Player putting card on the Fold and removing it from its hand</summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+        ///
+        /// <param name="header">       The header. </param>
+        /// <param name="connection">   The connection. </param>
+        /// <param name="result">       True to result. </param>
 
         public void PutCard(PacketHeader header, Connection connection, bool result)
         {
@@ -148,7 +197,15 @@ namespace ClientApplication
             }
         }
 
-        public void GetTrump(PacketHeader header, Connection connection, Model.Card trump)
+        /// <summary>   Displays the trump. </summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+        ///
+        /// <param name="header">       The header. </param>
+        /// <param name="connection">   The connection. </param>
+        /// <param name="trump">        The trump. </param>
+
+        public void GetTrump(PacketHeader header, Connection connection, Card trump)
         {
             Response response = new Response();
             Client.Board.Trump = trump;
@@ -161,11 +218,18 @@ namespace ClientApplication
             NetworkComms.SendObject<Model.Response>("Responses", Client.ServerIp, Client.ServerPort, response);
         }
 
+        /// <summary>   Displays greeting's informations </summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+        ///
+        /// <param name="header">       The header. </param>
+        /// <param name="connection">   The connection. </param>
+        /// <param name="greeting">     The greeting. </param>
         public void Greeting(PacketHeader header, Connection connection, Greeting greeting)
         {
             //Check if connection is OK
             if (greeting.Connection == false) {
-                System.Environment.Exit(1);
+                Environment.Exit(1);
             }
 
             //Get Data from the HandShake

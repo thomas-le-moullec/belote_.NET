@@ -46,6 +46,10 @@ namespace ServerApplication
             NetworkComms.Shutdown();
         }
 
+        /// <summary>   Creates end points. </summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+
         public void CreateEndPoints()
         {
             NetworkComms.AppendGlobalIncomingPacketHandler<String>("Greetings", this.InitialiseGame);
@@ -102,17 +106,41 @@ namespace ServerApplication
             connection.SendObject("Greetings", welcome);
         }
 
+        /// <summary>   Tells the client to ask for task </summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+        ///
+        /// <param name="header">       The packet header associated with the incoming message. </param>
+        /// <param name="connection">   The connection used by the incoming message. </param>
+        /// <param name="id">           The identifier. </param>
+
         public void WhichTasks(PacketHeader header, Connection connection, int id)
         {
             Console.WriteLine("WHICH TASK!\n");
             connection.SendObject("WhichTasks", Room.Players[id - 1].TaskState);
         }
 
+        /// <summary>   Tells the client to display the board </summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+        ///
+        /// <param name="header">       The packet header associated with the incoming message. </param>
+        /// <param name="connection">   The connection used by the incoming message. </param>
+        /// <param name="id">           The identifier. </param>
+
         public void GetBoard(PacketHeader header, Connection connection, int id)
         {
             Console.WriteLine("GET Board!\n");
             connection.SendObject("GetBoards", Room.RoomBoard);
         }
+
+        /// <summary>   Tells the client to display the scores </summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+        ///
+        /// <param name="header">       The packet header associated with the incoming message. </param>
+        /// <param name="connection">   The connection used by the incoming message. </param>
+        /// <param name="id">           The identifier. </param>
 
         public void GetScores(PacketHeader header, Connection connection, int id)
         {
@@ -128,8 +156,17 @@ namespace ServerApplication
             }
         }
 
+        /// <summary>   Tell the client to display the player's hand </summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+        ///
+        /// <param name="header">       The packet header associated with the incoming message. </param>
+        /// <param name="connection">   The connection used by the incoming message. </param>
+        /// <param name="id">           The identifier. </param>
+
         public void GetHands(PacketHeader header, Connection connection, int id)
         {
+            Console.WriteLine("-------- GET IN THE GETHANDS HANDLER --------");
             connection.SendObject("GetHands", Room.Players[id - 1].Hand);
             Console.WriteLine("BEFORE GET HAND id:" + id + " will be " + Room.Players[id - 1].TaskState.Type + "!\n");
             Room.Players[id - 1].TaskState.Type = Task.TaskNature.WAIT;
@@ -145,12 +182,28 @@ namespace ServerApplication
             Console.WriteLine("AFTER GET HAND id:" + id + " will be " + Room.Players[id - 1].TaskState.Type + "!\n");
         }
 
+        /// <summary>   Tells the client to diplay the trump </summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+        ///
+        /// <param name="header">       The packet header associated with the incoming message. </param>
+        /// <param name="connection">   The connection used by the incoming message. </param>
+        /// <param name="id">           The identifier. </param>
+
         public void GetTrump(PacketHeader header, Connection connection, int id)
         {
             Console.WriteLine("GET TRUMP!\n");
             Console.WriteLine("TRUMP Value IN GET TRUMP TYPE:" + Room.RoomBoard.Trump.Type + " VALUE :" + Room.RoomBoard.Trump.Val + "\n");
             connection.SendObject("GetTrumps", Room.RoomBoard.Trump);
         }
+
+        /// <summary>   Gets the responses to the question : "do you want the trump ?" </summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+        ///
+        /// <param name="header">       The packet header associated with the incoming message. </param>
+        /// <param name="connection">   The connection used by the incoming message. </param>
+        /// <param name="response">     The response. </param>
 
         public void GetResponses(PacketHeader header, Connection connection, Response response)
         {
@@ -179,6 +232,7 @@ namespace ServerApplication
                         }
                         player.TaskState.Type = Task.TaskNature.GET_HAND;
                     }
+                    Services.SetCardPoints(Room);
                 }
                 else
                 {
@@ -188,6 +242,14 @@ namespace ServerApplication
                 }
             }
         }
+
+        /// <summary>   Puts a card from the player's hand to the fold </summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+        ///
+        /// <param name="header">       The packet header associated with the incoming message. </param>
+        /// <param name="connection">   The connection used by the incoming message. </param>
+        /// <param name="card">         The card. </param>
 
         public void PutCard(PacketHeader header, Connection connection, Card card)
         {
@@ -204,7 +266,7 @@ namespace ServerApplication
             else
             {
                 Console.WriteLine("WE HAVE TO DETERMINE THE WINNER!\n");
-                nextPlayer = Services.WinFold(Room.RoomBoard.Fold);
+                nextPlayer = Services.WinFold(Room.RoomBoard.Fold, room.RoomBoard.Trump.GetType());
                 Room.ScoreBoard.ScoreTeams[0] = Room.Players[0].Score + Room.Players[2].Score;
                 Room.ScoreBoard.ScoreTeams[1] = Room.Players[1].Score + Room.Players[3].Score;
                 Services.SetScores(Room.RoomBoard.Fold, Room.Players);

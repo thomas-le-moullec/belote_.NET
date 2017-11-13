@@ -81,7 +81,7 @@ namespace serverApp
             {
                 foreach (Card card in player.Hand)
                 {
-                    if (card.Type.Equals(room.RoomBoard.Trump.Type) && card.Val.Equals("V"))
+                    if (card.Type.Equals(room.RoomBoard.Trump.Type) && card.Val.Equals("J"))
                         card.Points = 20;
                     if (card.Type.Equals(room.RoomBoard.Trump.Type) && card.Val.Equals("9"))
                         card.Points = 14;
@@ -89,20 +89,51 @@ namespace serverApp
             }
         }
 
-        public static int WinFold(List<Card> fold)
+        /// <summary>   Determines fold winner </summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+        ///
+        /// <param name="fold">         The fold. </param>
+        /// <param name="trumpType">    Type of the trump. </param>
+        ///
+        /// <returns>   An int. </returns>
+
+        public static int WinFold(List<Card> fold, Type trumpType)
         {
+            bool trumpMax = false;
             int idWinner = -1;
             int bestScore = -1;
 
+            if (fold[0].GetType().Equals(trumpType))
+                trumpMax = true;
             foreach (var card in fold)
             {
-                if (card.Points > bestScore)
-                {
-                    idWinner = card.IdPlayer;
-                }
+                    if (trumpMax == true && card.GetType().Equals(trumpType) && card.Points > bestScore)
+                    {
+                        idWinner = card.IdPlayer;
+                        bestScore = card.Points;
+                    }
+                    else if (trumpMax == false && card.GetType().Equals(trumpType))
+                    {
+                        idWinner = card.IdPlayer;
+                        trumpMax = true;
+                        bestScore = card.Points;
+                    }
+                    else if (trumpMax == false && card.GetType().Equals(trumpType) == false && card.Points > bestScore)
+                    {
+                        idWinner = card.IdPlayer;
+                        bestScore = card.Points;
+                    }
             }
             return (idWinner);
         }
+
+        /// <summary>   Sets the scores. </summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+        ///
+        /// <param name="fold">     The fold. </param>
+        /// <param name="players">  The players. </param>
 
         public static void SetScores(List<Card> fold, List<Player> players)
         {
