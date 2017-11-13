@@ -15,14 +15,15 @@ namespace Model
         [ProtoMember(2)]
         Card cardWinnerFold;
         [ProtoMember(3)]
-        List<int> scoreTeams;
+        int scoreTeam0;
+        [ProtoMember(4)]
+        int scoreTeam1;
 
         public ScoreBoard()
         {
             IdWinnerFold = 0;
-            ScoreTeams = new List<int>();
-            ScoreTeams.Add(0);
-            ScoreTeams.Add(0);
+            ScoreTeam0 = 0;
+            ScoreTeam1 = 0;
         }
         public int IdWinnerFold
         {
@@ -35,10 +36,16 @@ namespace Model
             get { return cardWinnerFold; }
             set { cardWinnerFold = value; }
         }
-        public List<int> ScoreTeams
+        public int ScoreTeam0
         {
-            get { return scoreTeams; }
-            set { scoreTeams = value; }
+            get { return scoreTeam0; }
+            set { scoreTeam0 = value; }
+        }
+
+        public int ScoreTeam1
+        {
+            get { return scoreTeam1; }
+            set { scoreTeam1 = value; }
         }
     }
 }

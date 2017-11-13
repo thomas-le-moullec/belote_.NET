@@ -20,7 +20,6 @@ namespace clientApp
 
         public static Card PutCard(Client client)
         {
-            Console.WriteLine("Please Choose which card do you want to play with this format : [TYPE]-[VALUE] (e.g CLUB:Q) :");
             client.Prompt = true;
             bool tryAgain = true;
             Card putCard = new Card();
@@ -98,9 +97,9 @@ namespace clientApp
         {
             Console.WriteLine("########################### END OF THE GAME ###########################\n");
             Console.WriteLine("RESULTS:\n");
-            Console.WriteLine("Team 1 Finished with "+scoreBoard.ScoreTeams[0]+" points\n");
-            Console.WriteLine("Team 2 Finished with " + scoreBoard.ScoreTeams[1] + " points\n");
-            if (player.Team == 0 && scoreBoard.ScoreTeams[0] < scoreBoard.ScoreTeams[1])
+            Console.WriteLine("Team 1 Finished with "+scoreBoard.ScoreTeam0+" points\n");
+            Console.WriteLine("Team 2 Finished with " + scoreBoard.ScoreTeam1 + " points\n");
+            if (player.Team == 0 && scoreBoard.ScoreTeam0 < scoreBoard.ScoreTeam1)
             {
                 Console.WriteLine("Sorry you loose this one !\n");
             }

@@ -144,16 +144,11 @@ namespace ServerApplication
 
         public void GetScores(PacketHeader header, Connection connection, int id)
         {
-            /*Console.WriteLine("GET Scores!\n");
-            Console.WriteLine("TEAM SCORES 1:" + Room.ScoreBoard.ScoreTeams[0] + "\n");
-            Console.WriteLine("TEAM SCORES 2:" + Room.ScoreBoard.ScoreTeams[1] + "\n");*/
+            /*Console.WriteLine("GET Scores!\n");*/
+            Console.WriteLine("TEAM SCORES 1:" + Room.ScoreBoard.ScoreTeam0 + "\n");
+            Console.WriteLine("TEAM SCORES 2:" + Room.ScoreBoard.ScoreTeam1 + "\n");
 
-            ScoreBoard scoreBoard = new ScoreBoard();
-            scoreBoard.IdWinnerFold = Room.ScoreBoard.IdWinnerFold;
-            scoreBoard.CardWinnerFold = Room.ScoreBoard.CardWinnerFold;
-            scoreBoard.ScoreTeams[0] = Room.ScoreBoard.ScoreTeams[0];
-            scoreBoard.ScoreTeams[1] = Room.ScoreBoard.ScoreTeams[1];
-            connection.SendObject("GetScores", scoreBoard);
+            connection.SendObject("GetScores", Room.ScoreBoard);
             Room.Players[id - 1].TaskState.Type = Task.TaskNature.WAIT;
             if (Room.Players[id - 1].Hand.Count != 0)
             {
@@ -276,8 +271,8 @@ namespace ServerApplication
                 //Console.WriteLine("WE HAVE TO DETERMINE THE WINNER!\n");
                 nextPlayer = Services.WinFold(Room.RoomBoard);
                 Services.SetScores(Room.RoomBoard.Fold, Room.Players, nextPlayer);
-                Room.ScoreBoard.ScoreTeams[0] = Room.Players[0].Score + Room.Players[2].Score;
-                Room.ScoreBoard.ScoreTeams[1] = Room.Players[1].Score + Room.Players[3].Score;
+                Room.ScoreBoard.ScoreTeam0 = Room.Players[0].Score + Room.Players[2].Score;
+                Room.ScoreBoard.ScoreTeam1 = Room.Players[1].Score + Room.Players[3].Score;
                 //Console.WriteLine("TEAM 1:" + Room.ScoreBoard.ScoreTeams[0] + "\n");
                 //Console.WriteLine("TEAM 2:" + Room.ScoreBoard.ScoreTeams[1] + "\n");
                 Room.ScoreBoard.IdWinnerFold = nextPlayer;
@@ -290,10 +285,7 @@ namespace ServerApplication
                 }
                 Room.RoomBoard.Fold.Clear();
             }
-            if (Room.Players[nextPlayer - 1].Hand.Count != 0)
-            {
-                Room.Players[nextPlayer - 1].TaskState.Type = Task.TaskNature.PUT_CARD;
-            }
+            Room.Players[nextPlayer - 1].TaskState.Type = Task.TaskNature.PUT_CARD;
             Room.RoomBoard.IdTurn = nextPlayer;
             //Console.WriteLine("FOLD SIZE :"+Room.RoomBoard.Fold.Count+"\n");
             if (Room.RoomBoard.Fold.Count == 0)

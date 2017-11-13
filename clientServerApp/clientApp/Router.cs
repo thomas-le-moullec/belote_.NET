@@ -100,6 +100,7 @@ namespace ClientApplication
                 //Console.WriteLine("Client will PUT a CARD");
                 DoActions(Model.Task.TaskNature.GET_BOARD);
                 Client.PutCard = Services.PutCard(Client);
+                Console.WriteLine("Please Choose which card do you want to play with this format : [TYPE]-[VALUE] (e.g CLUB:Q) :");
                 NetworkComms.SendObject<Model.Card>("PutCards", Client.ServerIp, Client.ServerPort, Client.PutCard);
             }
 
