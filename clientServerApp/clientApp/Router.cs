@@ -134,7 +134,7 @@ namespace ClientApplication
 
         public void GetHand(PacketHeader header, Connection connection, List<Model.Card> cards)
         {
-            Console.WriteLine("IN GET HAND CLIENT ROUTER\n");
+            //Console.WriteLine("IN GET HAND CLIENT ROUTER\n");
             Client.Player.Hand = cards;
             Services.DisplayHand(Client.Player);
         }
@@ -149,7 +149,9 @@ namespace ClientApplication
 
         public void GetScores(PacketHeader header, Connection connection, ScoreBoard scoreBoard)
         {
-            Console.WriteLine("IN GET SCORE CLIENT ROUTER\n");
+            /*Console.WriteLine("IN GET SCORE CLIENT ROUTER\n");
+            Console.WriteLine("IN GET SCORE CLIENT ROUTER TEAM 1 SCORE :"+scoreBoard.ScoreTeams[0]+"\n");
+            Console.WriteLine("IN GET SCORE CLIENT ROUTER TEAM 2 SCORE :" + scoreBoard.ScoreTeams[1] + "\n");*/
             //End of the Game
             if (Client.Player.Hand.Count == 0)
             {
@@ -171,7 +173,7 @@ namespace ClientApplication
 
         public void GetBoard(PacketHeader header, Connection connection, Model.Board board)
         {
-            Console.WriteLine("TRUMP Value IN GET BOARD TYPE:" + board.Trump.Type + " VALUE :" + board.Trump.Val + "\n");
+            //Console.WriteLine("TRUMP Value IN GET BOARD TYPE:" + board.Trump.Type + " VALUE :" + board.Trump.Val + "\n");
             Client.Board = board;
             Services.DisplayBoard(board);
             Services.DisplayHand(Client.Player);

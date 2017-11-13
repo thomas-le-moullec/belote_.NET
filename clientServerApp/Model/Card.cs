@@ -65,38 +65,46 @@ namespace Model
             String[] elems = cardStr.Split(':');
             Card card;
 
-            Console.WriteLine("WWWWWWWWWW------------------------------------------------------");
-            foreach (var thecard in board.Fold)
-            {
-                Console.WriteLine("DEBUG :::: Card from fold = " + thecard.Type + "\t+" + thecard.Val + "\n");
-            }
-            Console.WriteLine("WWWWWWWWWW------------------------------------------------------");
             card = (player.Hand.First(item => (item.Val.Equals(elems[1]) && item.Type.ToString().Equals(elems[0]))));
             if (card == null)
             {
-                Console.WriteLine("THROW UNE EXCEPTION : CARD NULL !!!");
                 throw new Exception();
             }
-            Console.WriteLine("-------------> " + board.Fold.Count());
             if (board.Fold.Count() != 0)
             {
-                if (card.Type.Equals(board.Fold[0].Type) == false &&
-                    player.Hand.First(item => item.Type.Equals(board.Fold[0].Type)) != null)
+                if (card.Type.Equals(board.Fold[0].Type) == false)
                 {
-                    Console.WriteLine("THROW UNE EXCEPTION : 1er IF !!!");
-                    Console.WriteLine("Type de 1ère carte de Fold : " + board.Fold[0].Type + "\ttype que contient player.hand = " + player.Hand.First(item => item.Type.Equals(board.Fold[0].Type)).Type);
-                    Console.WriteLine(card.Type.Equals(board.Fold[0].Type));
+                    try
+                    {
+                        player.Hand.First(item => item.Type.Equals(board.Fold[0].Type));
+                    }
+                    catch
+                    {
+                        return (card);
+                    }
                     throw new Exception();
                 }
-                if (card.Type.Equals(board.Fold[0].Type) == false &&
-                    player.Hand.First(item => item.Type.Equals(board.Fold[0].Type)) == null &&
-                    player.Hand.First(item => item.Type.Equals(board.Trump.Type)) != null)
+                if (card.Type.Equals(board.Fold[0].Type) == false)
                 {
-                    Console.WriteLine("THROW UNE EXCEPTION : 2eme IF !!!");
+                    try
+                    {
+                        player.Hand.First(item => item.Type.Equals(board.Fold[0].Type));
+                    }
+                    catch
+                    {
+                        throw new Exception();
+                    }
+                    try
+                    {
+                        player.Hand.First(item => item.Type.Equals(board.Trump.Type));
+                    }
+                    catch
+                    {
+                        return (card);
+                    }
                     throw new Exception();
                 }
             }
-            Console.WriteLine("POURTANT CA PASSE ICI...");
             return (card);
         }
 

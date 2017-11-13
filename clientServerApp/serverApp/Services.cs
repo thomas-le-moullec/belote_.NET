@@ -50,6 +50,12 @@ namespace serverApp
             board.Pick.RemoveAt(range);
         }
 
+        /// <summary>   Distributes the trump to the player who wants it </summary>
+        ///
+        /// <remarks>   , 13/11/2017. </remarks>
+        ///
+        /// <param name="player">   Player we are distributing the cards to. </param>
+        /// <param name="board">    Contains the trump. </param>
         public static void DistribTrump(Player player, Board board)
         {
             player.Hand.Add(board.Trump);
@@ -98,29 +104,36 @@ namespace serverApp
         ///
         /// <returns>   An int. </returns>
 
-        public static int WinFold(List<Card> fold, Type trumpType)
+        public static int WinFold(Board board)
         {
             bool trumpMax = false;
             int idWinner = -1;
             int bestScore = -1;
 
-            if (fold[0].GetType().Equals(trumpType))
+        /*    Console.WriteLine("TRUMP TYPE ========== " + board.Trump.Type);
+            Console.WriteLine("FOLD TYPE  ========== " + board.Fold[0].Type);*/
+            if (board.Fold[0].Type.Equals(board.Trump.Type))
                 trumpMax = true;
-            foreach (var card in fold)
+            /*Console.WriteLine("TRUMP MAX  ========== " + trumpMax);
+            Console.WriteLine("ekqjzthkwdurthweilutrherjthekrtheurtyleuityerilutyweilty");*/
+            foreach (var card in board.Fold)
             {
-                    if (trumpMax == true && card.GetType().Equals(trumpType) && card.Points > bestScore)
+                    if (trumpMax == true && card.Type.Equals(board.Trump.Type) && card.Points > bestScore)
                     {
+      //                  Console.WriteLine("1ER IF");
                         idWinner = card.IdPlayer;
                         bestScore = card.Points;
                     }
-                    else if (trumpMax == false && card.GetType().Equals(trumpType))
+                    else if (trumpMax == false && card.Type.Equals(board.Trump.Type))
                     {
+    //                    Console.WriteLine("2EME IF");
                         idWinner = card.IdPlayer;
                         trumpMax = true;
                         bestScore = card.Points;
                     }
-                    else if (trumpMax == false && card.GetType().Equals(trumpType) == false && card.Points > bestScore)
+                    else if (trumpMax == false && card.Type.Equals(board.Trump.Type) == false && card.Points > bestScore)
                     {
+  //                      Console.WriteLine("3EME IF");
                         idWinner = card.IdPlayer;
                         bestScore = card.Points;
                     }
@@ -135,11 +148,12 @@ namespace serverApp
         /// <param name="fold">     The fold. </param>
         /// <param name="players">  The players. </param>
 
-        public static void SetScores(List<Card> fold, List<Player> players)
+        public static void SetScores(List<Card> fold, List<Player> players, int nextPlayer)
         {
+            //Console.WriteLine("NExt player:"+nextPlayer+"\n");
             foreach (var card in fold)
             {
-                players[card.IdPlayer - 1].Score += card.Points;
+                players[nextPlayer - 1].Score = players[nextPlayer - 1].Score + card.Points;
             }
         }
     }

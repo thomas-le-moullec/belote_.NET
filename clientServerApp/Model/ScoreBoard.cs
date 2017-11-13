@@ -11,11 +11,11 @@ namespace Model
     public class ScoreBoard
     {
         [ProtoMember(1)]
-        private int idWinnerFold;
+        int idWinnerFold;
         [ProtoMember(2)]
-        private Card cardWinnerFold;
+        Card cardWinnerFold;
         [ProtoMember(3)]
-        private List<int> scoreTeams;
+        List<int> scoreTeams;
 
         public ScoreBoard()
         {
