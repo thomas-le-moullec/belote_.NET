@@ -5,3 +5,9 @@ C:\Users\53568\source\repos\clientServerApp\Model\obj\Debug\Model.csprojResolveA
 C:\Users\53568\source\repos\clientServerApp\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 C:\Users\53568\source\repos\clientServerApp\Model\obj\Debug\Model.dll
 C:\Users\53568\source\repos\clientServerApp\Model\obj\Debug\Model.pdb
+C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\Model\bin\Debug\Model.dll
+C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\Model\bin\Debug\Model.pdb
+C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\Model\obj\Debug\Model.dll
+C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\Model\obj\Debug\Model.pdb

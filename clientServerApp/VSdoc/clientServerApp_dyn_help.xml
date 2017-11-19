@@ -1,0 +1,1067 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DynamicHelp xmlns="http://msdn.microsoft.com/vsdata/xsd/vsdh.xsd" xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance" xsi:schemaLocation="http://msdn.microsoft.com/vsdata/xsd/vsdh.xsd">	
+   <LINKGROUP ID="clientServerApp" Title="SOLUTION-WIDE PROPERTIES Reference Help" Priority="2100">
+      <GLYPH Expanded="vs:/ctxhelp_show.gif" Collapsed="vs:/ctxhelp_hide.gif"/>
+   </LINKGROUP>
+
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Board" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000032.html" LinkGroup="clientServerApp">Board Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Board.Board" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000037.html" LinkGroup="clientServerApp">Board Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Client.Board" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000004.html" LinkGroup="clientServerApp">Board Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Card" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000038.html" LinkGroup="clientServerApp">Card Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Card.Card" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000043.html" LinkGroup="clientServerApp">Card Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.ScoreBoard.CardWinnerFold" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000005E.html" LinkGroup="clientServerApp">CardWinnerFold Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Client" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000001.html" LinkGroup="clientServerApp">Client Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Client.Client" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000009.html" LinkGroup="clientServerApp">Client Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Router.Client" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000000C.html" LinkGroup="clientServerApp">Client Property {ClientApplication.Router}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="clientApp.ScheduleTask.Client" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000001D.html" LinkGroup="clientServerApp">Client Property {clientApp.ScheduleTask}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000000.html" LinkGroup="clientServerApp">ClientApplication Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Greeting.Connection" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000045.html" LinkGroup="clientServerApp">Connection Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="clientApp.Services.DisplayBoard" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000021.html" LinkGroup="clientServerApp">DisplayBoard Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="clientApp.Services.DisplayEndFold" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000025.html" LinkGroup="clientServerApp">DisplayEndFold Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="clientApp.Services.DisplayEndGame" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000024.html" LinkGroup="clientServerApp">DisplayEndGame Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="clientApp.Services.DisplayHand" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000022.html" LinkGroup="clientServerApp">DisplayHand Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="clientApp.Services.DisplayTrump" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000023.html" LinkGroup="clientServerApp">DisplayTrump Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="serverApp.Services.DistribCards" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000002A.html" LinkGroup="clientServerApp">DistribCards Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="serverApp.Tests.ServicesTests.DistribCardsTest" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000071.html" LinkGroup="clientServerApp">DistribCardsTest Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="serverApp.Services.DistribTrump" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000002C.html" LinkGroup="clientServerApp">DistribTrump Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="serverApp.Tests.ServicesTests.DistribTrumpTest" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000074.html" LinkGroup="clientServerApp">DistribTrumpTest Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Router.DoActions" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000010.html" LinkGroup="clientServerApp">DoActions Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="clientApp.ScheduleTask.EventTimeHandler" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000001C.html" LinkGroup="clientServerApp">EventTimeHandler Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Board.Fold" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000033.html" LinkGroup="clientServerApp">Fold Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Router.GetBoard" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000014.html" LinkGroup="clientServerApp">GetBoard Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Router.GetHand" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000012.html" LinkGroup="clientServerApp">GetHand Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Router.GetScores" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000013.html" LinkGroup="clientServerApp">GetScores Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Router.GetTrump" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000016.html" LinkGroup="clientServerApp">GetTrump Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Greeting" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000044.html" LinkGroup="clientServerApp">Greeting Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Router.Greeting" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000017.html" LinkGroup="clientServerApp">Greeting Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Player.Hand" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000004B.html" LinkGroup="clientServerApp">Hand Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Greeting.Id" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000047.html" LinkGroup="clientServerApp">Id Property {Model.Greeting}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Player.Id" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000004A.html" LinkGroup="clientServerApp">Id Property {Model.Player}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Response.Id" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000053.html" LinkGroup="clientServerApp">Id Property {Model.Response}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Room.Id" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000056.html" LinkGroup="clientServerApp">Id Property {Model.Room}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Card.IdPlayer" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000041.html" LinkGroup="clientServerApp">IdPlayer Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Board.IdTurn" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000034.html" LinkGroup="clientServerApp">IdTurn Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.ScoreBoard.IdWinnerFold" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000005D.html" LinkGroup="clientServerApp">IdWinnerFold Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Greeting.Message" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000046.html" LinkGroup="clientServerApp">Message Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000031.html" LinkGroup="clientServerApp">Model Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Board.Pick" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000036.html" LinkGroup="clientServerApp">Pick Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Player" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000049.html" LinkGroup="clientServerApp">Player Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Player.Player" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000050.html" LinkGroup="clientServerApp">Player Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Client.Player" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000002.html" LinkGroup="clientServerApp">Player Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Room.Players" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000059.html" LinkGroup="clientServerApp">Players Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Card.Points" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000040.html" LinkGroup="clientServerApp">Points Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Client.Prompt" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000007.html" LinkGroup="clientServerApp">Prompt Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Router.PutCard" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000015.html" LinkGroup="clientServerApp">PutCard Method {ClientApplication.Router}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="clientApp.Services.PutCard" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000020.html" LinkGroup="clientServerApp">PutCard Method {clientApp.Services}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="serverApp.Services.PutCard" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000002D.html" LinkGroup="clientServerApp">PutCard Method {serverApp.Services}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Client.PutCard" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000003.html" LinkGroup="clientServerApp">PutCard Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="serverApp.Tests.ServicesTests.PutCardTest" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000073.html" LinkGroup="clientServerApp">PutCardTest Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Router.ReceiveAction" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000011.html" LinkGroup="clientServerApp">ReceiveAction Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Response" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000051.html" LinkGroup="clientServerApp">Response Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Room" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000054.html" LinkGroup="clientServerApp">Room Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Room.Room" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000055.html" LinkGroup="clientServerApp">Room Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Room.RoomBoard" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000005A.html" LinkGroup="clientServerApp">RoomBoard Property</LItem>
+      </Links>
+   </Context>
+   
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Router.Router" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000000D_overloads--.html" LinkGroup="clientServerApp">Router Constructor</LItem>
+      </Links>
+   </Context>
+   
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Router.Router" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000000E_overloads--.html" LinkGroup="clientServerApp">Router Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Router" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000000B.html" LinkGroup="clientServerApp">Router Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Client.Router" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000005.html" LinkGroup="clientServerApp">Router Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Client.Run" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000000A.html" LinkGroup="clientServerApp">Run Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SOLUTION-WIDE PROPERTIES Reference" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000077.html" LinkGroup="clientServerApp">SOLUTION-WIDE PROPERTIES Reference</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="clientApp.ScheduleTask.ScheduleAction" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000001B.html" LinkGroup="clientServerApp">ScheduleAction Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="clientApp.ScheduleTask" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000019.html" LinkGroup="clientServerApp">ScheduleTask Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="clientApp.ScheduleTask.ScheduleTask" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000001A.html" LinkGroup="clientServerApp">ScheduleTask Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Player.Score" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000004C.html" LinkGroup="clientServerApp">Score Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.ScoreBoard" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000005B.html" LinkGroup="clientServerApp">ScoreBoard Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.ScoreBoard.ScoreBoard" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000005C.html" LinkGroup="clientServerApp">ScoreBoard Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Room.ScoreBoard" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000057.html" LinkGroup="clientServerApp">ScoreBoard Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.ScoreBoard.ScoreTeam0" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000005F.html" LinkGroup="clientServerApp">ScoreTeam0 Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.ScoreBoard.ScoreTeam1" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000060.html" LinkGroup="clientServerApp">ScoreTeam1 Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Client.ServerIp" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000006.html" LinkGroup="clientServerApp">ServerIp Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Client.ServerPort" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000008.html" LinkGroup="clientServerApp">ServerPort Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="clientApp.Services" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000001F.html" LinkGroup="clientServerApp">Services Class {clientApp}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="serverApp.Services" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000028.html" LinkGroup="clientServerApp">Services Class {serverApp}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="serverApp.Services.Services" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000029.html" LinkGroup="clientServerApp">Services Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="serverApp.Tests.ServicesTests.ServicesTest" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000070.html" LinkGroup="clientServerApp">ServicesTest Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="serverApp.Tests.ServicesTests" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000006F.html" LinkGroup="clientServerApp">ServicesTests Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="serverApp.Services.SetCardPoints" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000002E.html" LinkGroup="clientServerApp">SetCardPoints Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="serverApp.Tests.ServicesTests.SetCardPointsTest" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000075.html" LinkGroup="clientServerApp">SetCardPointsTest Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="serverApp.Services.SetScores" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000030.html" LinkGroup="clientServerApp">SetScores Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ClientApplication.Router.Subscribe" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000000F.html" LinkGroup="clientServerApp">Subscribe Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Task" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000061.html" LinkGroup="clientServerApp">Task Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Task.Task" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000006D.html" LinkGroup="clientServerApp">Task Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Task.TaskNature" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000062.html" LinkGroup="clientServerApp">TaskNature Enumeration</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Player.TaskState" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000004F.html" LinkGroup="clientServerApp">TaskState Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Greeting.Team" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000048.html" LinkGroup="clientServerApp">Team Property {Model.Greeting}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Player.Team" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000004E.html" LinkGroup="clientServerApp">Team Property {Model.Player}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Response.Text" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000052.html" LinkGroup="clientServerApp">Text Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="clientApp.ScheduleTask.Time" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000001E.html" LinkGroup="clientServerApp">Time Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Board.Trump" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000035.html" LinkGroup="clientServerApp">Trump Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="serverApp.Services.TrumpGeneration" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000002B.html" LinkGroup="clientServerApp">TrumpGeneration Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="serverApp.Tests.ServicesTests.TrumpGenerationTest" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000072.html" LinkGroup="clientServerApp">TrumpGenerationTest Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Room.TrumpTaker" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000058.html" LinkGroup="clientServerApp">TrumpTaker Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Card.Type" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000003E.html" LinkGroup="clientServerApp">Type Property {Model.Card}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Task.Type" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000006C.html" LinkGroup="clientServerApp">Type Property {Model.Task}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Card.Types" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000039.html" LinkGroup="clientServerApp">Types Enumeration</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Player.Username" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000004D.html" LinkGroup="clientServerApp">Username Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Card.Val" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000003F.html" LinkGroup="clientServerApp">Val Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="Model.Card.VerifCard" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000042.html" LinkGroup="clientServerApp">VerifCard Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="serverApp.Services.WinFold" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000002F.html" LinkGroup="clientServerApp">WinFold Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="serverApp.Tests.ServicesTests.WinFoldTest" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000076.html" LinkGroup="clientServerApp">WinFoldTest Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="clientApp" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000018.html" LinkGroup="clientServerApp">clientApp Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="serverApp" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_0000000000000027.html" LinkGroup="clientServerApp">serverApp Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="serverApp.Tests" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:clientServerApp.chm::/topic_000000000000006E.html" LinkGroup="clientServerApp">serverApp.Tests Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+</DynamicHelp>
+

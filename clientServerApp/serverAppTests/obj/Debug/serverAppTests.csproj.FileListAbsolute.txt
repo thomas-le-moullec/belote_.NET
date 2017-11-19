@@ -26,3 +26,17 @@ C:\Users\53568\Documents\CS\DOT_cardGames_2017\clientServerApp\serverAppTests\ob
 C:\Users\53568\Documents\CS\DOT_cardGames_2017\clientServerApp\serverAppTests\obj\Debug\serverAppTests.csproj.CoreCompileInputs.cache
 C:\Users\53568\Documents\CS\DOT_cardGames_2017\clientServerApp\serverAppTests\obj\Debug\serverAppTests.dll
 C:\Users\53568\Documents\CS\DOT_cardGames_2017\clientServerApp\serverAppTests\obj\Debug\serverAppTests.pdb
+C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\serverAppTests\bin\Debug\serverAppTests.dll
+C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\serverAppTests\bin\Debug\serverAppTests.pdb
+C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\serverAppTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\serverAppTests\bin\Debug\Model.dll
+C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\serverAppTests\bin\Debug\serverApp.exe
+C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\serverAppTests\bin\Debug\NetworkCommsDotNetComplete.dll
+C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\serverAppTests\bin\Debug\Model.pdb
+C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\serverAppTests\bin\Debug\serverApp.pdb
+C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\serverAppTests\bin\Debug\serverApp.exe.config
+C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\serverAppTests\bin\Debug\fr\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\serverAppTests\obj\Debug\serverAppTests.csprojResolveAssemblyReference.cache
+C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\serverAppTests\obj\Debug\serverAppTests.csproj.CoreCompileInputs.cache
+C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\serverAppTests\obj\Debug\serverAppTests.dll
+C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\serverAppTests\obj\Debug\serverAppTests.pdb
