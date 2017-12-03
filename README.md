@@ -34,10 +34,10 @@ Endpoints
 --------------
 In order to communicate are available 8 different enpoints, each having a particular role : 
 - *Greetings* : to give an id and to attribute room
-- *WhichTask* : to tell which task he has to do
+- *WhichTasks* : to tell which task he has to do
 - *GetHands*: to distribute the hand
 - *GetTrumps* : to give the trump
 - *GetBoards* : to show the board
-- *Resonses* : answer to the question 'do you want the trump'
+- *Responses* : answer to the question 'do you want the trump'
 - *PutCards* : to play a card
 - *GetScores* : to display the scores

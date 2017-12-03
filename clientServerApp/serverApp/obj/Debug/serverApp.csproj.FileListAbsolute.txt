@@ -26,3 +26,12 @@ C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\serverApp\obj\Debug\serve
 C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\serverApp\obj\Debug\serverApp.csproj.CoreCompileInputs.cache
 C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\serverApp\obj\Debug\serverApp.exe
 C:\Users\53568\TEST\DOT_cardGames_2017\clientServerApp\serverApp\obj\Debug\serverApp.pdb
+C:\Users\Thomas\Documents\DOT_cardGames_2017\clientServerApp\serverApp\bin\Debug\serverApp.exe.config
+C:\Users\Thomas\Documents\DOT_cardGames_2017\clientServerApp\serverApp\bin\Debug\serverApp.exe
+C:\Users\Thomas\Documents\DOT_cardGames_2017\clientServerApp\serverApp\bin\Debug\serverApp.pdb
+C:\Users\Thomas\Documents\DOT_cardGames_2017\clientServerApp\serverApp\bin\Debug\Model.dll
+C:\Users\Thomas\Documents\DOT_cardGames_2017\clientServerApp\serverApp\bin\Debug\Model.pdb
+C:\Users\Thomas\Documents\DOT_cardGames_2017\clientServerApp\serverApp\obj\Debug\serverApp.csprojResolveAssemblyReference.cache
+C:\Users\Thomas\Documents\DOT_cardGames_2017\clientServerApp\serverApp\obj\Debug\serverApp.csproj.CoreCompileInputs.cache
+C:\Users\Thomas\Documents\DOT_cardGames_2017\clientServerApp\serverApp\obj\Debug\serverApp.exe
+C:\Users\Thomas\Documents\DOT_cardGames_2017\clientServerApp\serverApp\obj\Debug\serverApp.pdb
