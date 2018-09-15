@@ -1,9 +1,6 @@
-DOT_cardGames_2017
 ===================
 
-
-The goal of this project was to create a client server application of a card game.
-We chose to work on the Belote card game.
+Client server application of a Belote card game.
 
 ----------
 
@@ -11,13 +8,13 @@ We chose to work on the Belote card game.
 Launching the game
 -------------
 
-- Launch the client application. Double click on DOT_cardGame_2017/clientServerApp/clientApp/bin/Debug/clientApp.exe
+- Launch the client application. Double click on clientServerApp/clientApp/bin/Debug/clientApp.exe
 - Enter the IP Address displayed in the server window.
 
 Testing the game
 -------------
 
-- start by launching the server Application. Double click on DOT_cardGame_2017/clientServerApp/serverApp/bin/Debug/serverApp.exe
+- start by launching the server Application. Double click on clientServerApp/serverApp/bin/Debug/serverApp.exe
 - launch 4 clients (view the 'Launching the game' part to see how to achieve this)
 
 Game rules
